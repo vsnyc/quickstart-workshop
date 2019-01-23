@@ -1,0 +1,4 @@
+[submodule "submodules/quickstart-cloud9-ide"]
+	path = submodules/quickstart-cloud9-ide
+	url = git@github.com:aws-quickstart/quickstart-cloud9-ide.git
+	branch = master
