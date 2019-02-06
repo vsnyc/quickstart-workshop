@@ -9,7 +9,7 @@ weight = 20
 
 Change you current working directory to the location where you want clone you fork 
 
-    #Example clone into your home directory under a folder called quickstarts
+    #Example clone repo into your home directory under a folder called quickstarts
     mkdir ~/quickstarts
     git clone --recurse-submodules https://github.com/<github-username>/quickstart-linux-bastion
 
