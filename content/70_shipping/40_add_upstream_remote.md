@@ -1,7 +1,7 @@
 +++
 title = "Adding upstream remote branch"
 chapter = false
-weight = 30
+weight = 40
 +++
 
 

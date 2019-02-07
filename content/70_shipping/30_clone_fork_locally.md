@@ -1,15 +1,8 @@
 +++
 title = "Clone your fork localy"
 chapter = false
-weight = 20
+weight = 30
 +++
-
-**Get your fork URL**
-
-Navigate to you GitHub Home page **https://github.com/<your-gitusername>**
-From the repositories tab 
-
-![Get you Clone URL](/images/copy-web-url.png)
 
 **Clone your fork**
 
@@ -20,7 +13,7 @@ When cloing your fork make sure to include the **--recurse-submodules** flag
 {{% /notice %}}
 
 
-1. clone repo into your home directory under a folder called quickstarts
+1. Clone repo into your home directory under a folder called quickstarts
 
     `mkdir ~/quickstarts`
     `git clone --recurse-submodules `
