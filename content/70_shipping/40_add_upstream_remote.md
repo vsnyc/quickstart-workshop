@@ -18,7 +18,8 @@ Before sending Pull Requests to the the quickstart org (upstream branch) make su
 
 **Add upstream and fetch**
 
-`git remote add upstream https://github.com/aws-quickstart/quickstart-linux-bastion`
+`git remote add upstream git@github.com:aws-quickstart/quickstart-linux-bastion.git`
+
 `git fetch upstream`
 
     From github.com:aws-quickstart/quickstart-linux-bastion
