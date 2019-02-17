@@ -20,3 +20,5 @@ You might also consider additional entry point that are specific to your archite
 - **New VPC+EKS+Workload** - Creates a VPC then load the EKS QuickStart then the workload (master template)
 - **EKS+Workload** - Loads the EKS QuickStart into an exisiting VPC then the workload 
 - **Workload** - just load the workload into a exisitng EKS Cluster
+
+In the implementation section you will create a basic master template which starts with building out a VPC (Using QuickStart VPC submodule) and then adds a Linux Bastion (Using the Quickstart Liunx Bastion) as a workload 
