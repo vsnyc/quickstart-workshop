@@ -1,7 +1,7 @@
 +++
 title = "Set-up CICD for CloudFormation"
 chapter = false
-weight = 30
+weight = 40
 +++
 
 Now, we will setup a CICD pipeline for our Github repo. This will ensure that any changes to the code is always tested before merge, and the master branch of the repo always contains the working code which is ready to be submitted to the original Quick Start repository. We will use the **[CI/CD pipeline for AWS CloudFormation templates](https://aws.amazon.com/quickstart/architecture/cicd-taskcat/) Quick Start** to setup the pipeline. This is an example where we are using an existing Quick Start to accomplish a task.

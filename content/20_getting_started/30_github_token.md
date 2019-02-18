@@ -1,7 +1,7 @@
 +++
 title = "Create Github Token"
 chapter = false
-weight = 20
+weight = 30
 +++
 
 Before we get started, we need Github personal access token which will be used to create CICD pipeline for our CloudFormation templates.
