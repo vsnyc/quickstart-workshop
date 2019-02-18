@@ -12,11 +12,15 @@ weight = 21
     Cloning into 'qs-workshop'...
     warning: You appear to have cloned an empty repository.
 
-** Change directory to the qs-workshop repo**
+**Change directory to the qs-workshop repo**
+
 `cd qs-workshop`
 
-**Download and push base content to you repo**
+**Download and load base content to you repo**
+
 `curl https://raw.githubusercontent.com/aws-quickstart/quickstart-workshop-labs/develop/workshop-base/base.tar | tar -x`
+
+**Commit your changes**
 
 `git commit -a -m 'Load base content'`
 
@@ -27,7 +31,7 @@ weight = 21
 	 create mode 100644 templates/workshop.template.yaml
 
 
-**Download and push base content to the master branch**
+**Push base content to the master branch**
 
 `git push`
 
@@ -40,11 +44,12 @@ weight = 21
 	To github.com:avattathil/qs-workshop.git
 	 * [new branch]      master -> master
 
-**Create a develop branch and set the upstream branch**
+**Create a develop branch based on master**
 
 `git checkout -b develop`
 
-**Push develop branch**
+**Push changes to develop and set the upstream**
+
 `git push --set-upstream origin develop`
 
 	Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
