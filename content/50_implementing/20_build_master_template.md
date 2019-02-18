@@ -1,5 +1,5 @@
 +++
 title = "Building a master template"
 chapter = false
-weight = 10
+weight = 20
 +++

@@ -20,7 +20,9 @@ weight = 21
 
 `curl https://raw.githubusercontent.com/aws-quickstart/quickstart-workshop-labs/develop/workshop-base/base.tar | tar -x`
 
-**Commit your changes**
+**Add content and Commit your changes**
+
+`git add --all .`
 
 `git commit -a -m 'Load base content'`
 
@@ -61,4 +63,8 @@ weight = 21
 	To github.com:avattathil/qs-workshop.git
 	 * [new branch]      develop -> develop
 	Branch 'develop' set up to track remote branch 'develop' from 'origin'.
+
+{{% notice tip %}}
+The taskcat-ci should trigger based on your push Check the code-pipeline console for details
+{{% /notice %}}
 
