@@ -20,7 +20,7 @@ It will open the AWS CloudFormation console in a new tab in your browser. Click 
 On the **Specify Details** page, enter following values for the parameters:
 
 - **Repository owner** - Your github id
-- **Repository name** - `quickstart-ref-arch`
+- **Repository name** - `qs-workshop`
 - **Source branch** - `develop`
 - **Release branch** - `master`
 - **OAuth2 token** - Github access token created in [Create Github token](20_github_token.html) page.
