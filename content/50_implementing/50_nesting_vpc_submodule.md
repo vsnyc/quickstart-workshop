@@ -4,7 +4,9 @@ chapter = false
 weight = 50
 +++
 
-Open **templates/workshop.template.yaml** in an editor to inspect the contents of the file
+**Add QuickStart VPC as a nested stack**
+
+Open _templates/workshop.template.yaml_ in an editor to inspect the contents of the file
 
 In the **Resources:** section add a resource of Type **Type: 'AWS::CloudFormation::Stack'** this create a nested cloudformation 
 

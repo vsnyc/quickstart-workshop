@@ -1,50 +1,32 @@
 +++
-title = "Working with submodules"
+title = "Adding submodules"
 chapter = false
 weight = 30
 +++
+
+We will add two submodules to the qs-workshop repo (QuickStart VPC and QuickStart Linux Bastion)
 
 **Change to the root of your repo**
 
 `cd qs-workshop`
 
-**Add QuicStart VPC as submodule to your repo**
+#### Add a VPC to your project
+**Add QuickStart VPC as a submodule**
 
 `git submodule add -b master git@github.com:aws-quickstart/quickstart-aws-vpc.git submodules/quickstart-aws-vpc`
 
 **Commit your changes and push to the develop branch**
 
-`git commit -a -m "Add QuicStart VPC Submodule"`
+`git commit -a -m "Add QuickStart VPC Submodule"`
 
-`git push`
+#### Add Linux Bastion to your project
+**Add QuickStart Linux Bastion as a submodule**
 
-**Your branch should now contain the following**
+`git submodule add -b master git@github.com:aws-quickstart/quickstart-linux-bastion.git submodules/quickstart-linux-bastion`
 
-    ├── ci
-    │   ├── taskcat.yml
-    │   └── workshop_input.json
-    ├── submodules
-    │   └── quickstart-aws-vpc
-    │       ├── LICENSE.txt
-    │       ├── NOTICE.txt
-    │       ├── README.md
-    │       ├── ci
-    │       │   ├── aws-vpc-3az-complete.json
-    │       │   ├── aws-vpc-3az-public.json
-    │       │   ├── aws-vpc-3az.json
-    │       │   ├── aws-vpc-4az-complete.json
-    │       │   ├── aws-vpc-4az-public.json
-    │       │   ├── aws-vpc-4az.json
-    │       │   ├── aws-vpc-complete.json
-    │       │   ├── aws-vpc-dedicated.json
-    │       │   ├── aws-vpc-defaults.json
-    │       │   ├── aws-vpc-public.json
-    │       │   ├── aws-vpc-sa-east-1.json
-    │       │   └── taskcat.yml
-    │       └── templates
-    │           └── aws-vpc.template
-    └── templates
-        └── workshop.template.yaml
+**Commit your changes and push to the develop branch**
+
+`git commit -a -m "Add QuickStart Linux Bastion Submodule"`
 
 {{% notice tip %}}
 If you need to update your submodules later you can use the following command  `git sddubmodule update --recursive`
