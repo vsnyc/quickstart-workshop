@@ -6,8 +6,6 @@ weight = 10
 
 **Create an Amazon EC2 key pair**
 
-
-
 - Signin to your AWS account [Sign In to the Console](https://console.aws.amazon.com/)
 - We will be working in the **eu-central-1** EU (Frankfurt) Region for this workshop, choose **EU (Frankfurt)** from the upper right of the console. If you encounter any permission-related errors as you go through the lab, verify that you are in the **EU (Frankfurt)** Region.
 - Go to the **EC2** console by searching or choosing it from the list of AWS services.
