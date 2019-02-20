@@ -17,7 +17,7 @@ weight = 10
 
 **Reduce the permission on your .pem file so only the root user can read it**
 
-    chmod 400 qsworkshop.pem
+`chmod 400 qsworkshop.pem`
 
 For more information on Amazon EC2 Key Pairs, see the [Amazon EC2 documentation](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
 
