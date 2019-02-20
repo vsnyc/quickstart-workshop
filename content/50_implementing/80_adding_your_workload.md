@@ -8,4 +8,6 @@ weight = 80
 
 The workload template contain the product specfic code. For the purpose of this lab we will create a AutoScaled web server template as the workload.
 
+*Download the workload template*
 
+`curl -s https://raw.githubusercontent.com/aws-quickstart/quickstart-workshop-labs/master/implementing/templates/workload.template.yaml -o templates/workload.template.yaml`
