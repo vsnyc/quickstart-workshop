@@ -10,6 +10,7 @@ Open _templates/workshop.template.yaml_ in an editor to inspect the contents of 
 
 In the **Resources:** section add a resource of Type **Type: 'AWS::CloudFormation::Stack'** this create a nested cloudformation 
 
+<pre>
 	Resources:
 	  BastionStack:
 	    DependsOn: VPCStack
@@ -42,6 +43,7 @@ In the **Resources:** section add a resource of Type **Type: 'AWS::CloudFormatio
 	          Fn::GetAtt:
 	          - VPCStack
 	          - Outputs.VPCID
+</pre>
 
 {{% notice tip %}}
 Close your editor and use the below command to append the above code to your template
