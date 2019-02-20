@@ -38,3 +38,7 @@ Close your editor and use the below command to append the above code to your tem
 
 `curl -s https://raw.githubusercontent.com/aws-quickstart/quickstart-workshop-labs/master/implementing/templates/vpcstack.master.template.yaml >>templates/workshop.template.yaml`
 
+**Commit changes to master template**
+
+` git commit -a -m 'Add QuickStart VPC as a nested stack'`
+
