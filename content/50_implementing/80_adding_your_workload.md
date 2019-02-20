@@ -11,3 +11,7 @@ The workload template contain the product specfic code. For the purpose of this 
 *Download the workload template*
 
 `curl -s https://raw.githubusercontent.com/aws-quickstart/quickstart-workshop-labs/master/implementing/templates/workload.template.yaml -o templates/workload.template.yaml`
+
+**Commit changes to repo**
+
+`git commit -a -m 'Added Workload'`
