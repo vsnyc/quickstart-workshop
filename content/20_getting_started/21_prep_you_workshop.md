@@ -26,17 +26,19 @@ weight = 21
 
 `git commit -a -m 'Load base content'`
 
+<pre>
 	[master (root-commit) ab0660b] Load base content
  	 3 files changed, 33 insertions(+)
 	 create mode 100644 ci/taskcat.yml
 	 create mode 100644 ci/workshop_input.json
 	 create mode 100644 templates/workshop.template.yaml
-
+</pre>
 
 **Push base content to the master branch**
 
 `git push`
 
+<pre>
 	Enumerating objects: 7, done.
 	Counting objects: 100% (7/7), done.
 	Delta compression using up to 8 threads
@@ -45,6 +47,7 @@ weight = 21
 	Total 7 (delta 0), reused 0 (delta 0)
 	To github.com:avattathil/qs-workshop.git
 	 * [new branch]      master -> master
+</pre>
 
 **Create a develop branch based on master**
 
@@ -54,6 +57,7 @@ weight = 21
 
 `git push --set-upstream origin develop`
 
+<pre>
 	Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
 	Total 0 (delta 0), reused 0 (delta 0)
 	remote:
@@ -63,6 +67,7 @@ weight = 21
 	To github.com:avattathil/qs-workshop.git
 	 * [new branch]      develop -> develop
 	Branch 'develop' set up to track remote branch 'develop' from 'origin'.
+</pre>
 
 {{% notice tip %}}
 The taskcat-ci should trigger based on your push Check the code-pipeline console for details
