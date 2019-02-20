@@ -10,6 +10,7 @@ Open _templates/workshop.template.yaml_ in an editor to inspect the contents of 
 
 In the **Resources:** section add a resource of Type **Type: 'AWS::CloudFormation::Stack'** this create a nested cloudformation 
 
+<pre>
     Resources:
       VPCStack:
         Type: 'AWS::CloudFormation::Stack'
@@ -27,6 +28,7 @@ In the **Resources:** section add a resource of Type **Type: 'AWS::CloudFormatio
             PublicSubnet1CIDR: !Ref PublicSubnet1CIDR
             PublicSubnet2CIDR: !Ref PublicSubnet2CIDR
             VPCCIDR: !Ref VPCCIDR
+</pre>
 
 {{% notice tip %}}
 Close your editor and use the below command to append the above code to your template
