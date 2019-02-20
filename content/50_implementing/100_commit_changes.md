@@ -10,9 +10,8 @@ weight = 90
 
 `git commit -a -m 'Added QuickStart VPC submodule as nested stack'`
 
+<pre>
     [develop 1084b85] Added QuickStart VPC submodule as nested stack
      1 file changed, 87 insertions(+), 1 deletion(-)
      rewrite templates/workshop.template.yaml (100%)
-
-
-
+</pre>
