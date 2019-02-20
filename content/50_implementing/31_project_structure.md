@@ -1,11 +1,12 @@
 +++
-title = "Project Structure"
+title = "Verify Project Structure"
 chapter = false
 weight = 31
 +++
 
 **Your _develop_ branch should now contain the following:**
 
+<pre>
     ├── ci
     │   ├── taskcat.yml
     │   └── workshop_input.json
@@ -36,11 +37,13 @@ weight = 31
     │           └── linux-bastion.template
     └── templates
         └── workshop.template.yaml
+</pre>
 
 **Push your submodules to the develop branch**
 
 `git push`
 
+<pre>
     Enumerating objects: 13, done.
     Counting objects: 100% (13/13), done.
     Delta compression using up to 8 threads
@@ -50,4 +53,4 @@ weight = 31
     remote: Resolving deltas: 100% (1/1), completed with 1 local object.
     To github.com:avattathil/qs-workshop.git
        3fe60df..acdba90  develop -> develop
-
+</pre>
