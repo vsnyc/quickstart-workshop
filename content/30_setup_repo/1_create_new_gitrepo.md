@@ -1,7 +1,7 @@
 +++
 title = "Create Quick Start repo"
 chapter = false
-weight = 20
+weight = 10
 +++
 
 {{% notice warning %}}

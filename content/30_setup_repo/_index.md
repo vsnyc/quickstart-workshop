@@ -1,7 +1,7 @@
 +++
 title = "Setting-up Repo"
 chapter = true
-weight = 20
+weight = 30
 +++
 
 # Setting-up Github Repo
