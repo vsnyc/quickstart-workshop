@@ -23,7 +23,5 @@ For this workshop, you will create a repo in your own github account and use it 
 3. Name your repo **qs-workshop** and click **Create repository**.
 ![name repo](/images/create_workshop_repo2.png)
 
-4. Make a note of your repo URL.
-![repo url](/images/copy-qs-workshop-path.png)
 
 
