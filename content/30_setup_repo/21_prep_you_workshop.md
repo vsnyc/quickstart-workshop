@@ -1,7 +1,7 @@
 +++
 title = "Create Scaffolding"
 chapter = false
-weight = 21
+weight = 20
 +++
 
 The GitHub repository for each Quick Start includes the following folders:
