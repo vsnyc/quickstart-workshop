@@ -106,7 +106,4 @@ As a best practice, you should keep the development and release branches separat
 	Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 	</pre>
 
-{{% notice tip %}}
-The taskcat-ci should trigger based on your push Check the code-pipeline console for details
-{{% /notice %}}
 
