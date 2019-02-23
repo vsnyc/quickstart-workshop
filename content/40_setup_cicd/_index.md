@@ -1,10 +1,10 @@
 +++
-title = "Designing"
+title = "Creating CICD Pipeline"
 chapter = true
 weight = 40
 +++
 
-# Designing your Quick Start
+# Creating CICD Pipeline
 
 {{% children showhidden="false" %}}
 
