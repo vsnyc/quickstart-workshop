@@ -14,4 +14,6 @@ The workload template contain the product specfic code. For the purpose of this 
 
 **Commit changes to repo**
 
+git add templates/workload.template.yaml
+
 `git commit -a -m 'Added Workload'`
