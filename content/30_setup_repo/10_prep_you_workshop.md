@@ -43,9 +43,9 @@ To make this task easy, we have pre-created the scaffolding and configurations f
 
 2. Download and load the content in your repo
 
-	```
+	`
 	curl https://raw.githubusercontent.com/aws-quickstart/quickstart-workshop-labs/develop/workshop-base/base.tar | tar -x
-	```
+	`
 
 3. Add and Commit your changes
 
