@@ -1,7 +1,7 @@
 +++
 title = "Wrapping Up"
 chapter = true
-weight = 80
+weight = 90
 +++
 
 # Wrapping Up
