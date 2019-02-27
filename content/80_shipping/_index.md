@@ -1,7 +1,7 @@
 +++
 title = "Shipping"
 chapter = true
-weight = 70
+weight = 80
 +++
 
 # Submit for publishing
