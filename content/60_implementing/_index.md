@@ -1,10 +1,10 @@
 +++
-title = "Testing"
+title = "Implementation"
 chapter = true
 weight = 60
 +++
 
-# Testing the templates
+# Writing CloudFormation templates
 
 {{% children showhidden="false" %}}
 
