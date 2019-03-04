@@ -1,5 +1,5 @@
 +++
-title = "Creating parameters"
+title = "Adding parameters"
 chapter = false
 weight = 20
 +++
