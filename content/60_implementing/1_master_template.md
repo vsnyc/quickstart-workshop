@@ -33,7 +33,7 @@ Master template will create one or many nested stacks, depending upon the Quick 
 
 For this workshop's Quick Start architecture, master template will create three nested stacks - VPC stack, Linux bastion stack and a workload stack, as shown in the image above.
 
-Create the master template by creating a file called `master.template.yaml`, copy the below contents into the file, and save.
+Create the master template by creating a file called `master.template.yaml` in **templates/** directory, copy the below contents into the file, and save.
 
 ```
 ---
