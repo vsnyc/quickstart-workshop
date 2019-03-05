@@ -25,34 +25,45 @@ TaskCat requires two files at **ci/** folder in the project directory, to run th
 1. An input parameter file in JSON format
 2. A test configuration file named **taskcat.yml**
 
+#### Input parameter file
 ***Input parameter file*** is a JSON file. It contains the test values for the parameters of your CloudFormation template. You can have multiple parameter files to test different deployment scenarios. This file is a list of object, each object contains two keys named - **ParameterKey** and **ParameterValue**. **ParameterKey** specifies the exact name of the parameter in the CloudFormation template and **ParameterValue** specifies the parameter value needs to be passed to the parameter. You can also auto-generate values for some parameter types such as UUIDs, regions, strings and numbers, at run time by using pre-defined tokens. For the complete list of pre-defined tokens, see the [TaskCat documentation](https://github.com/aws-quickstart/taskcat#more-information-on-taskcat-runtime-injection).
 
 Our input parameter file looks like below. Copy the following content into your input parameter file and save it.
 
 ```
-[{
-    "ParameterKey": "KeyPairName",
-    "ParameterValue": "keypair"
-}, {
-    "ParameterKey": "InstanceType",
-    "ParameterValue": "t2.small"
-}, {
-    "ParameterKey": "AvailablityZones",
-    "ParameterValue": "$[taskcat_genaz_2]"
-}, {
-    "ParameterKey": "UUID",
-    "ParameterValue": "$[taskcat_genuuid]"
-}, {
-    "ParameterKey": "Password",
-    "ParameterValue": ""
-}]
+[
+    {
+        "ParameterKey": "AvailabilityZones",
+        "ParameterValue": "$[taskcat_getaz_2]"
+    },
+    {
+        "ParameterKey": "EmailAddress",
+        "ParameterValue": "email@yourdomain.com"
+    },
+    {
+        "ParameterKey": "KeyPairName",
+        "ParameterValue": "your-key-pair-name"
+    },
+    {
+        "ParameterKey": "RemoteAccessCIDR",
+        "ParameterValue": "0.0.0.0/0"
+    },
+    {
+        "ParameterKey": "WebserverCIDR",
+        "ParameterValue": "0.0.0.0/0"
+    },
+    {
+        "ParameterKey": "QSS3BucketName",
+        "ParameterValue": "$[taskcat_autobucket]"
+    }
+]
 ```
 
-As you can see above, there are few parameters like *Password* for which you don't want to hardcode a value and check it into the github repository. For such situations, TaskCat provide capability to override the parameter values via override files. Following are the two override files supported by TaskCat:
+As you can see above, there are few parameters like *KeyPairName* and *EmailAddress* which you don't want to hardcode a value and check it into the github repository. For such situations, TaskCat provide capability to override the parameter values via override files. Following are the two override files supported by TaskCat:
 
-* Global override file - Place this in the **.aws** directory within your home directory 
+- **Global override file** - Place this in the **.aws** directory within your home directory 
 *~/.aws/taskcat_global_override.json*
-* Project override file - Place this in the **ci/** directory within your project directory 
+- **Project override file** - Place this in the **ci/** directory within your project directory 
 *<project_name>/ci/taskcat_project_override.json*
 
 TaskCat read parameters in the following order:
@@ -64,13 +75,21 @@ TaskCat read parameters in the following order:
 For this workshop, create a global override file and add the parameter value for the password. You file should look like below:
 
 ```
-[{
-    "ParameterKey": "Password",
-    "ParameterValue": "MyPassword"
-}]
+[
+    {
+        "ParameterKey": "EmailAddress",
+        "ParameterValue": "email@yourdomain.com"
+    },
+    {
+        "ParameterKey": "KeyPairName",
+        "ParameterValue": "your-key-pair-name"
+    }
+]
 ```
 
-The second file required by TaskCat is the configuration file named **taskcat.yml** in the **ci/** folder. Let's create this file. It should look like the following:
+#### TaskCat configuration file
+
+The second file required by TaskCat is the configuration file named **taskcat.yml** in the **ci/** folder. 
 
  ```
  global:
@@ -114,17 +133,40 @@ The **taskcat.yml** contains 2 high level mappings - *global* and *tests*.
 
 **tests** mapping defines test scenarios which will be performed by TaskCat. You can define multiple test scenarios in *test* mapping, and each test scenario must specify parameter input file name and CloudFormation template file name. Optionally, you can also define regions in which the test needs to be executed. This region list will override the global region list.
 
+Let's create **ci/taskcat.yml** file for this workshop Quick Start. It should look like the following:
+
+```
+global:
+  owner: owner@amazon.com
+  qsname: qs-workshop
+  regions:
+    - ap-southeast-1
+    - ap-southeast-2
+    - eu-central-1
+    - eu-west-1
+    - us-east-1
+    - us-west-1
+    - us-west-2
+  reporting: true
+tests:
+  lab-master-vpc:
+    parameter_input: input.json 
+    template_file: master.template.yaml
+    regions:
+      - us-west-2
+```
+
 ### Running tests
 
 Now that we have input parameter files and taskcat configuration file created, let's run TaskCat to execute our tests.
 
 Run the following command in your terminal window:
 
-`taskcat -c <project-directory>/ci/taskcat.yml`
+`taskcat -c qs-workshop/ci/taskcat.yml`
 
 You should see the TaskCat logs scrolling through your terminal window. TaskCat performs series of actions as part of executing a test, such as template validation, parameter validation, staging content into S3 bucket, and launching CloudFormation stack. It launches the stack creation in all the defined regions, for each test, simultaneously. And regularly polls the CloudFormation stack status to check if the stack creation is finished. How much time TaskCat takes to finish the testing, depends on how many tests you have defined in your TaskCat configuration file and how long each stack creation and deletion takes. 
 
-After the TaskCat run is complete, you will see a report genereated in HTML format in the current directory from where you are running TaskCat command. You can see the report by opening the file named **index.html** in **<current-directory>/taskcat_outputs/**. Your report should look like below:
+After the TaskCat run is complete, you will see a report genereated in HTML format in the current directory from where you are running TaskCat command. You can see the report by opening **taskcat_outputs/index.html** file in a web browser. Your report should look like below:
 
 ![taskcat-report](/images/taskcat-report.png)
 
