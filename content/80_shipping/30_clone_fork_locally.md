@@ -4,7 +4,16 @@ chapter = false
 weight = 30
 +++
 
-**Clone your fork**
+### Get your fork URL
+
+1. Navigate to you GitHub Home page **https://github.com/your-git-username/**
+
+2. Copy you forks url path
+
+![Get you Clone URL](/images/copy-web-url.png)
+
+
+### Clone your fork
 
 Change you current working directory to the location where you want clone you fork 
 
