@@ -82,7 +82,7 @@ To make this task easy, we have pre-created the scaffolding and configurations f
 
 ### Create development branch
 
-As a best practice, you should keep the development and release branches separately. We will use **develop** branch for development and **master** branch for releases of the Quick Start. Currently, we only have _master_ branch in our github repo. So, let's create a _develop_ branch from the _master_ branch.
+As a best practice, you should keep the development and release branches separate. We will use **develop** branch for development and **master** branch for releases of the Quick Start. Currently, we only have _master_ branch in our github repo. So, let's create a _develop_ branch from the _master_ branch.
 
 1. Create a develop branch based on master
 
