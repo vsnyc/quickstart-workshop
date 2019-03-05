@@ -12,11 +12,12 @@ For this workshop, you will add the following outputs to your master template.
 
 <pre>
 	Outputs:
-	  ELBDNSName:
-	    Description: ELB DNS Name
+	  WebUrl:
+	    Description: The web server URL
 	    Value:
 	      Fn::GetAtt:
-	      - WorkloadStack.Outputs.ELBDNSName
+	      - WorkloadStack
+	      - Outputs.URL
 </pre>
 
 Run the following command to add outputs to **master.template.yaml** file.
