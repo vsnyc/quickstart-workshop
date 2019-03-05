@@ -1,10 +1,10 @@
 +++
-title = "Shipping"
+title = "Submitting for review"
 chapter = true
 weight = 80
 +++
 
-# Submit for publishing
+# Submit for review
 
 {{% children showhidden="false" %}}
 
