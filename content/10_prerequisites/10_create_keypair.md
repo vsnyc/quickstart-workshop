@@ -1,5 +1,5 @@
 +++
-title = "Creating a keypair"
+title = "Create a keypair"
 chapter = false
 weight = 10
 +++
