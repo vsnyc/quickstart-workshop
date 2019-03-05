@@ -33,7 +33,7 @@ $ git clone git@github.com:avattathil/qs-workshop.git
 </pre>
 
 ### Create scaffolding
-When a Quick Start repo is created by the Quick Start team, all the folders are pre-created for you. But, as you are creating your own repo for this workshop, you need to create above folders.
+When a Quick Start repo is created by the Quick Start team, all the folders are pre-created for you. But, as you are creating your own repo for this workshop, you need to create necessary folders.
 
 To make this task easy, we have pre-created the scaffolding and configurations files. Run the following commands to download the scaffolding and files.
 
