@@ -23,7 +23,7 @@ Copy the url of your github repo
 
 Clone the repo by running the following command. Replace *GITHUB_REPO_URL* with your url.
 
-`git clone <GITHUB_REPO_URL>`
+`git clone GITHUB_REPO_URL`
 
 You should see following output.
 <pre>
