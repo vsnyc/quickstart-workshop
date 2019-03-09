@@ -4,7 +4,10 @@ chapter = false
 weight = 30
 +++
 
-Before we get started, we need Github personal access token which will be used to create CICD pipeline for our CloudFormation templates.
+{{% notice warning %}}
+You must have a GitHub account for this workshop. If you do not have an account create one by following these instructions [Signing up for a new GitHub Account](https://help.github.com/articles/signing-up-for-a-new-github-account/){{% /notice %}}
+
+You need Github personal access token which will be used to create CICD pipeline for your CloudFormation templates.
 
 Follow the steps below to create a token:
 
