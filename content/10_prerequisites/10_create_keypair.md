@@ -6,6 +6,10 @@ weight = 10
 
 An EC2 KeyPair is required if you want to SSH into an EC2 instance. We will be creating multiple EC2 instances in this workshop and use a KeyPair with those instances.
 
+{{% notice tip %}}
+If you already have an existing EC2 KeyPair, and corresponding private key, you can skip this page.
+{{% /notice %}}
+
 ### Create an Amazon EC2 key pair
 
 Sign-in to your [AWS account](https://console.aws.amazon.com/)
