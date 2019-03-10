@@ -27,10 +27,32 @@ Clone the repo by running the following command. Replace *GITHUB_REPO_URL* with 
 
 You should see following output.
 <pre>
-$ git clone git@github.com:avattathil/qs-workshop.git
-  Cloning into 'qs-workshop'...
-  warning: You appear to have cloned an empty repository.
+Admin:~/environment $ git clone https://github.com/sshvans/qs-workshop.git
+Cloning into 'qs-workshop'...
+warning: You appear to have cloned an empty repository.
 </pre>
+
+{{%expand "Click here if you get an error" %}}
+#### Error: Permission denied (publickey)
+<pre>
+Admin:~/environment $ git clone git@github.com:sshvans/qs-workshop.git
+Cloning into 'qs-workshop'...
+The authenticity of host 'github.com (192.30.253.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+RSA key fingerprint is MD5:16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+</pre>
+
+If you see above error message, it means you are using SSH URL to clone the repository, but you don't have SSH private key setup on your development environment machine.
+
+To Fix the issue, run the `git clone GITHUB_REPO_URL` with HTTPS URL of your GitHub repo. 
+{{% /expand%}}
 
 ### Create scaffolding
 When a Quick Start repo is created by the Quick Start team, all the folders are pre-created for you. But, as you are creating your own repo for this workshop, you need to create necessary folders.
@@ -80,11 +102,42 @@ To make this task easy, we have pre-created the scaffolding and configurations f
 	** [new branch]      master -> master
 	</pre>
 
+{{%expand "Click here if your output doesn't match above" %}}
+#### Prompt: Enter github username
+<pre>
+Admin:~/environment/qs-workshop (master) $ git push
+Username for 'https://github.com':
+</pre>
+
+Don't worry if you see the above prompt. It just means that you do not have the github credentials setup in your development envrionment. This happens if you are using github cli first time from your development machine.
+
+Enter your github username and personal token (for password) to push the changes. Your output should look like following:
+
+<pre>
+Admin:~/environment/qs-workshop (master) $ git push
+Username for 'https://github.com': sshvans
+Password for 'https://sshvans@github.com': 
+Counting objects: 7, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (7/7), 830 bytes | 830.00 KiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0)
+To https://github.com/sshvans/qs-workshop.git
+ * [new branch]      master -> master
+</pre>
+{{% /expand%}}
+
 ### Create development branch
 
-As a best practice, you should keep the development and release branches separate. We will use **develop** branch for development and **master** branch for releases of the Quick Start. Currently, we only have _master_ branch in our github repo. So, let's create a _develop_ branch from the _master_ branch.
+When you create a GitHub repository, it only contains **master** branch. 
 
-1. Create a develop branch based on master
+As a best practice, you should keep the development and release branches separate. We will use **develop** branch for development and **master** branch for releases of the Quick Start. 
+
+![git branches](/images/git-branches.png?height=50%&width=50%)
+
+Currently, we only have _master_ branch in our github repo. So, let's create a _develop_ branch from the _master_ branch.
+
+1. Create and checkout develop branch from master
 
 	`git checkout -b develop`
 
