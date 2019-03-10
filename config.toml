@@ -1,4 +1,4 @@
-baseURL = "https://aws.amazon.com"
+baseURL = "https://workshop.quickstart.awspartner.com"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "AWS Quick Start Workshop"
