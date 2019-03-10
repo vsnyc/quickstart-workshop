@@ -4,9 +4,6 @@ chapter = false
 weight = 10
 +++
 
-{{% notice warning %}}
-You must have a GitHub account for this workshop. If you do not have an account create one by following these instructions [Signing up for a new GitHub Account](https://help.github.com/articles/signing-up-for-a-new-github-account/){{% /notice %}}
-
 Each Quick Start consist of a GitHub repo where all the contents of the Quick Start live. This repo is a private GitHub repo during the development phase and made public after launch. 
 
 When you submit a proposal to build a Quick Start, Quick Start team creates a private GitHub repo and give you access to the repo.
