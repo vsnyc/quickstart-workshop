@@ -23,14 +23,14 @@ On the **Specify Details** page, enter following values for the parameters:
 - **Repository name** - `qs-workshop`
 - **Source branch** - `develop`
 - **Release branch** - `master`
-- **OAuth2 token** - Github access token created in [Create Github token](20_github_token.html) page.
+- **OAuth2 token** - Github access token created in [Create Github token](/10_prerequisites/30_github_token.html) page.
 
-Click **Next** and **Next**.
+Leave other parameters as-is, click **Next** and **Next**.
 
 On the **Review** page, review and confirm the template settings. Under Capabilities, select the check boxes to acknowledge that the template will create IAM resources and require additional capabilities. Then click **Create** to deploy the stack.
 ![cstack](/images/create-stack.gif)
 
-It will take approximately 3-5 minutes to deploy the CICD pipeline. You can check the status of the CloudFormation stack from [CloudFormation console](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2).
+It will take approximately 3-5 minutes to deploy the CICD pipeline. While CloudFormation is creating stack, you can move on to the next steps. You can go to [CloudFormation console](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2), to check the status of the CloudFormation stack from.
 
 **Congratulations!** You have successfully setup a CICD pipeline for your Quick Start Github repo.
 
