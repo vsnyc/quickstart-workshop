@@ -27,7 +27,9 @@ Let's identify the parameters which needs to be passed to the **VPC Quick Start*
 
 Open *submodules/quickstart-aws-vpc/aws-vpc.template* file to evaluate the *VPC Quick Start* parameters.
 
-Following parameters values needs to be passed to the **VPC Quick Start** template.
+*VPC Quick Start* provide variety of parameters to customize the VPC architecture depending upon your needs. 
+
+For this workshop, following parameters values needs to be passed to the **VPC Quick Start** template.
 
 | Parameter Key | Description | Default Value|
 | ------------- | ----------- | ------------ |
@@ -43,7 +45,9 @@ Following parameters values needs to be passed to the **VPC Quick Start** templa
 
 Open *submodules/quickstart-linux-bastion/linux-bastion.template* file to evaluate the *Linux bastion Quick Start*  parameters.
 
-Following parameter values needs to be passed to the **Linux bastion Quick Start** template.
+*Linux Quick Start* provide variety of parameters to customize the properties of Bastion instance, depending upon your user case. 
+
+For this workshop, following parameter values needs to be passed to the **Linux bastion Quick Start** template.
 
 | Parameter Key | Description | Default Value|
 | ------------- | ----------- | ------------ |
