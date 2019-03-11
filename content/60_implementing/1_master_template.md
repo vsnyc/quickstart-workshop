@@ -9,8 +9,7 @@ The following instruction must be performed from within your workshop repo **qs-
 {{% /notice %}}
 
 ### Deployment options
-Each Quick Start should allow users to deploy the workload into an existing VPC or in a new VPC which is created as part of the Quick Start.
-Which means, we need to provide two deployment options to cover both the scenarios:
+Each Quick Start should allow users to deploy the workload into an existing VPC and in a new VPC which is created as part of the Quick Start. Which means, you need to provide two deployment options to cover both the scenarios:
 
 1. Building a new virtual private cloud (VPC) that contains the AWS infrastructure for the workload. This scenario enables users to set up a test, demo, or POC environment that doesn’t interfere with their production environment.
 2. Deploying the workload into an existing VPC. This scenario enables quick adoption by users who want to deploy the workload into their existing production environment.
@@ -24,7 +23,7 @@ To cover both the above scenarios, we will structure our templates in a modular 
 
 **workload.template** is the entry point to deploy the workload into an existing VPC.
 
-When user wants to deploy the Quick Start into a new VPC, he will launch **master.template**. And to deploy the Quick Start into an already existing VPC, he will launch **workload.template**. Workload template will require VPC information to be passed in as parameters.
+To deploy the Quick Start into a new VPC, user will launch **master.template**. And to deploy Quick Start into an already existing VPC, user will launch **workload.template**. Workload template will require VPC information to be passed in as parameters.
 
 ### Build master template
 Let's create the master templete now.
