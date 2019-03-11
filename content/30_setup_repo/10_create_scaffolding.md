@@ -49,9 +49,10 @@ Please make sure you have the correct access rights
 and the repository exists.
 </pre>
 
-If you see above error message, it means you are using SSH URL to clone the repository, but you don't have SSH private key setup on your development environment machine.
+If you see above error message, it means you are using SSH URL to clone the repository, and you don't have SSH private key setup on your development environment machine.
 
-To Fix the issue, run the `git clone GITHUB_REPO_URL` with HTTPS URL of your GitHub repo. 
+To quick fix the issue, run `git clone GITHUB_REPO_URL` with HTTPS URL of your GitHub repo. 
+
 {{% /expand%}}
 
 ### Create scaffolding
@@ -109,7 +110,7 @@ Admin:~/environment/qs-workshop (master) $ git push
 Username for 'https://github.com':
 </pre>
 
-Don't worry if you see the above prompt. It just means that you do not have the github credentials setup in your development envrionment. This happens if you are using github cli first time from your development machine.
+Don't worry if you see the above prompt. It's asking you to enter the github username and password to authenticate your git action. You see this prompt because you are doing *git push* for the first time. Here onwards, Git has cached your credentials in memory for the time period specified in [Setup Git CLI](/10_prerequisites/40_setup_github_cli.html#configure-git-credentials) step. 
 
 Enter your github username and personal token (for password) to push the changes. Your output should look like following:
 
