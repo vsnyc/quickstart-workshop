@@ -4,7 +4,8 @@ chapter = false
 weight = 10
 +++
 
-Now that we have an understanding of architectural best practices, we will break down the Quick Start architecture into smaller components.
+Now that you have an understanding of architectural best practices, we will break down the Quick Start architecture into smaller components. Think of each components as a Lego peices, which when combined together builds the overall architecture of the Quick Start.
+
 Identifying different components helps us focus on one component at a time when writing the CloudFormation template. 
 
 Each CloudFormation template will focus on just one component. It helps us make our code modular, maintainable and easy to test. 
