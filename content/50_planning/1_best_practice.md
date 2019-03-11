@@ -4,7 +4,9 @@ chapter = false
 weight = 1
 +++
 
-Quick Starts are built for **production** deployments. Therefore, when designing the architecture of your Quick Start, you should consider answering the following questions, before starting to write the CloudFormation templates.
+Quick Starts are built for **production** deployments. Therefore, when designing the architecture of your Quick Start, you should follow AWS best practices and Well Architected framework. 
+
+You should consider answering the following questions, before starting to write the CloudFormation templates.
 
 - **How many Availability Zones the workload will be deployed into?**
 
