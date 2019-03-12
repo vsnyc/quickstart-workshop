@@ -20,7 +20,9 @@ Close _templates/master.template.yaml_ file and run the following command to add
 curl -s https://raw.githubusercontent.com/aws-quickstart/quickstart-workshop-labs/master/implementing/templates/vpcstack.master.template.yaml >>templates/master.template.yaml
 ```
 
-Commit your changes.
+Add and commit your changes.
+
+`git add .`
 
 ` git commit -a -m 'Add QuickStart VPC as a nested stack'`
 
