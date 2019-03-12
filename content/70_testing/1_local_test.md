@@ -77,10 +77,15 @@ Your input parameter file looks like below.
         "ParameterValue": "0.0.0.0/0"
     },
     {
+        "ParameterKey": "QSS3KeyPrefix",
+        "ParameterValue": "qs-workshop/"
+    },
+    {
         "ParameterKey": "QSS3BucketName",
         "ParameterValue": "$[taskcat_autobucket]"
     }
 ]
+
 ```
 
 {{%expand "BONUS Section (May be skipped)" %}}
@@ -189,11 +194,17 @@ Now that we have input parameter files and taskcat configuration file created, l
 
 Run the following command in your terminal window:
 
-`taskcat -c qs-workshop/ci/taskcat.yml`
+`cd ~/environment`
 
-You should see the TaskCat logs scrolling through your terminal window. TaskCat performs series of actions as part of executing a test, such as template validation, parameter validation, staging content into S3 bucket, and launching CloudFormation stack. It launches the stack creation in all the defined regions, for each test, simultaneously. And regularly polls the CloudFormation stack status to check if the stack creation is finished. How much time TaskCat takes to finish the testing, depends on how many tests you have defined in your TaskCat configuration file and how long each stack creation and deletion takes. 
+`taskcat -c qs-workshop/ci/taskcat.yml &> screen-logs.txt &`
 
-After the TaskCat run is complete, you will see a report genereated in HTML format in the current directory from where you are running TaskCat command. You can see the report by opening **taskcat_outputs/index.html** file in a web browser. Your report should look like below:
+This will run TaskCat in the background and send logs/errors to *screen-logs.txt* file. TaskCat performs series of actions as part of executing a test, such as template validation, parameter validation, staging content into S3 bucket, and launching CloudFormation stack. It launches the stack creation in all the defined regions, for each test, simultaneously. And regularly polls the CloudFormation stack status to check if the stack creation is finished. How much time TaskCat takes to finish the testing, depends on how many tests you have defined in your TaskCat configuration file and how long each stack creation and deletion takes.
+
+You can *tail* the logs by running following command.
+
+`tail -f screen-logs.txt`
+
+After the TaskCat run is complete, you will see a report genereated in HTML format in the current directory from where you are running TaskCat command. You can see the report by *right click* on **taskcat_outputs/index.html**, and click *preview*. Your report should look like below:
 
 ![taskcat-report](/images/taskcat-report.png)
 
