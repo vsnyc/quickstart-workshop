@@ -53,7 +53,8 @@ Commit your changes and push to the develop branch.
 `git commit -a -m "Add QuickStart Linux Bastion Submodule"`
 
 {{% notice tip %}}
-If you need to update your submodules later you can use the following command  `git sddubmodule update --recursive`
+If you need to update your submodules later you can use the following command  `git submodule update --recursive`
+Similarly, if you are cloning an existing repo that already contains a submodule you will need to run `git submodule init` first, then `git submodule update -r` after to copy the contents.
 {{% /notice %}}
 
 ### Verify project structure
