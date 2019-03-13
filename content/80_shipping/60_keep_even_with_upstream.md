@@ -27,7 +27,7 @@ Fetch branches from remote.
 
 **Force push your local changes to your origin. This will upstream/develop and origin/develop even**
 
-`git push -f origin develop`
+`git push --force-with-lease origin develop`
 
     Everything up-to-date
     or
