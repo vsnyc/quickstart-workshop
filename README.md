@@ -20,3 +20,6 @@ On a mac:
 
 #### View site locally:
 Visit http://localhost:1313/ to see the site.
+
+#### Build Hugo site:
+`npm run build`
