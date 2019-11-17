@@ -6,6 +6,11 @@ weight = 20
 
 AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don't need to install files or configure your development machine to start new projects.
 
+{{% notice tip %}}
+**If you are doing this as part of a workshop using the Event Engine, you can skip this page. We have pre-provisioned a Cloud9 environment for you.**
+{{% /notice %}}
+
+
 {{% notice warning %}}
 The Cloud9 workspace should be built by an IAM user with Administrator privileges,
 not the root account user. Please ensure you are logged in as an IAM user, not the root
