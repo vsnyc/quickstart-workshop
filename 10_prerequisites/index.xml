@@ -16,7 +16,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://workshop.quickstart.awspartner.com/10_prerequisites/1_github_account.html</guid>
-      <description>If you already have a GitHub account, you can skip this page.   If you don&amp;rsquo;t already have a GitHub account: create one now
+      <description>If you already have a GitHub account, you can skip this page.
+  If you don&amp;rsquo;t already have a GitHub account: create one now
  Once you sign up, you may need to verify your email address.
  It is also a good security practice to setup two-factor authentication.
   </description>
@@ -28,7 +29,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://workshop.quickstart.awspartner.com/10_prerequisites/2_account.html</guid>
-      <description>**If you are doing this as part of a workshop using the Event Engine, you can skip this page. We will be providing an AWS account for you to use.**  If you already have an AWS account, and have IAM Administrator access, you can skip this page.  Your account must have the ability to create new IAM roles and scope other IAM permissions.   If you don&amp;rsquo;t already have an AWS account with Administrator access: create one now</description>
+      <description>If you are doing this as part of a workshop using the Event Engine, you can skip this page. We will be providing an AWS account for you to use.
+ If you already have an AWS account, and have IAM Administrator access, you can skip this page.
+ Your account must have the ability to create new IAM roles and scope other IAM permissions.
+  If you don&amp;rsquo;t already have an AWS account with Administrator access: create one now</description>
     </item>
     
     <item>
@@ -38,7 +42,7 @@
       
       <guid>https://workshop.quickstart.awspartner.com/10_prerequisites/20_workspace.html</guid>
       <description>AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don&amp;rsquo;t need to install files or configure your development machine to start new projects.
-**If you are doing this as part of a workshop using the Event Engine, you can skip this page.</description>
+If you are doing this as part of a workshop using the Event Engine, you can skip this page.</description>
     </item>
     
     <item>
@@ -47,7 +51,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://workshop.quickstart.awspartner.com/10_prerequisites/30_github_token.html</guid>
-      <description>You must have a GitHub account for this workshop. If you do not have an account create one by following these instructions [Signing up for a new GitHub Account](https://help.github.com/articles/signing-up-for-a-new-github-account/) You need Github personal access token which will be used to create CICD pipeline for your CloudFormation templates.
+      <description>You must have a GitHub account for this workshop. If you do not have an account create one by following these instructions Signing up for a new GitHub Account
+ You need Github personal access token which will be used to create CICD pipeline for your CloudFormation templates.
 Follow the steps below to create a token:
  Verify your email address, if it hasn&amp;rsquo;t been verified yet. In the upper-right corner of any page, click your profile photo, then click Settings.</description>
     </item>

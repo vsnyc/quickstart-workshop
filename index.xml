@@ -16,7 +16,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://workshop.quickstart.awspartner.com/80_cleanup/1_cleanup.html</guid>
-      <description>**If you are doing this as part of a workshop using the Event Engine, you can skip this page.**  Clean up steps The order below is important to remove resources cleanly.   Go to AWS CloudFormation console in US West (N. California) Region and delete the root (non-nested) stack that starts with the name tcat-tag-forge-. We had setup the CI/CD pipeline to not auto-delete the test stack to save testing time.</description>
+      <description>If you are doing this as part of a workshop using the Event Engine, you can skip this page.
+ Clean up steps The order below is important to remove resources cleanly.
+  Go to AWS CloudFormation console in US West (N. California) Region and delete the root (non-nested) stack that starts with the name tcat-tag-forge-. We had setup the CI/CD pipeline to not auto-delete the test stack to save testing time.</description>
     </item>
     
     <item>
@@ -25,7 +27,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://workshop.quickstart.awspartner.com/10_prerequisites/1_github_account.html</guid>
-      <description>If you already have a GitHub account, you can skip this page.   If you don&amp;rsquo;t already have a GitHub account: create one now
+      <description>If you already have a GitHub account, you can skip this page.
+  If you don&amp;rsquo;t already have a GitHub account: create one now
  Once you sign up, you may need to verify your email address.
  It is also a good security practice to setup two-factor authentication.
   </description>
@@ -57,7 +60,10 @@ When asked for a user name and password, use your GITHUB_USERNAME and GITHUB_TOK
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://workshop.quickstart.awspartner.com/10_prerequisites/2_account.html</guid>
-      <description>**If you are doing this as part of a workshop using the Event Engine, you can skip this page. We will be providing an AWS account for you to use.**  If you already have an AWS account, and have IAM Administrator access, you can skip this page.  Your account must have the ability to create new IAM roles and scope other IAM permissions.   If you don&amp;rsquo;t already have an AWS account with Administrator access: create one now</description>
+      <description>If you are doing this as part of a workshop using the Event Engine, you can skip this page. We will be providing an AWS account for you to use.
+ If you already have an AWS account, and have IAM Administrator access, you can skip this page.
+ Your account must have the ability to create new IAM roles and scope other IAM permissions.
+  If you don&amp;rsquo;t already have an AWS account with Administrator access: create one now</description>
     </item>
     
     <item>
@@ -67,8 +73,9 @@ When asked for a user name and password, use your GITHUB_USERNAME and GITHUB_TOK
       
       <guid>https://workshop.quickstart.awspartner.com/40_planning/10_deploy_quick_start.html</guid>
       <description>Deploy the Quick Start with the default Forge application by running the command below. This will create a new CloudFormation stack in your account with the name: Forge-Prod-Stack.
-bash run_cfn.sh  The run_cfn.sh bash script contains a single AWS CLI command to create a CloudFormation stack.
- &amp;lt;pre&amp;gt; aws cloudformation --region us-west-2 create-stack --stack-name Forge-Prod-Stack \ --template-url https://aws-cfn-samples.s3.amazonaws.com/quickstart-autodesk-forge/templates/autodesk-forge-master.json \ --parameters file://forge-prod-cfn.json \ --capabilities &amp;quot;CAPABILITY_IAM&amp;quot; --disable-rollback &amp;lt;/pre&amp;gt;   This step will take approximately 15 minutes, we&amp;rsquo;ll come back and verify that our base application has deployed correctly.</description>
+bash run_cfn.sh The run_cfn.sh bash script contains a single AWS CLI command to create a CloudFormation stack.
+ aws cloudformation &amp;ndash;region us-west-2 create-stack &amp;ndash;stack-name Forge-Prod-Stack &amp;ndash;template-url https://aws-cfn-samples.s3.amazonaws.com/quickstart-autodesk-forge/templates/autodesk-forge-master.json &amp;ndash;parameters file://forge-prod-cfn.json &amp;ndash;capabilities &amp;ldquo;CAPABILITY_IAM&amp;rdquo; &amp;ndash;disable-rollback 
+ This step will take approximately 15 minutes, we&amp;rsquo;ll come back and verify that our base application has deployed correctly.</description>
     </item>
     
     <item>
@@ -77,7 +84,9 @@ bash run_cfn.sh  The run_cfn.sh bash script contains a single AWS CLI command to
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://workshop.quickstart.awspartner.com/30_setup_cloud9/1_create_new_gitrepo.html</guid>
-      <description>You must have a GitHub account to fork an exisitng repo. If you do not have an account create one by following these instructions [Signing up for a new GitHub Account](https://help.github.com/articles/signing-up-for-a-new-github-account/)  Make sure you are logged into your GitHub account  Each Quick Start consist of a GitHub repo where all the contents of the Quick Start live. This repo is a private GitHub repo during the development phase and made public after launch.</description>
+      <description>You must have a GitHub account to fork an exisitng repo. If you do not have an account create one by following these instructions Signing up for a new GitHub Account
+ Make sure you are logged into your GitHub account
+ Each Quick Start consist of a GitHub repo where all the contents of the Quick Start live. This repo is a private GitHub repo during the development phase and made public after launch.</description>
     </item>
     
     <item>
@@ -137,7 +146,7 @@ This architecture contains following components:
       
       <guid>https://workshop.quickstart.awspartner.com/10_prerequisites/20_workspace.html</guid>
       <description>AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don&amp;rsquo;t need to install files or configure your development machine to start new projects.
-**If you are doing this as part of a workshop using the Event Engine, you can skip this page.</description>
+If you are doing this as part of a workshop using the Event Engine, you can skip this page.</description>
     </item>
     
     <item>
@@ -189,7 +198,8 @@ This architecture contains following components:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://workshop.quickstart.awspartner.com/10_prerequisites/30_github_token.html</guid>
-      <description>You must have a GitHub account for this workshop. If you do not have an account create one by following these instructions [Signing up for a new GitHub Account](https://help.github.com/articles/signing-up-for-a-new-github-account/) You need Github personal access token which will be used to create CICD pipeline for your CloudFormation templates.
+      <description>You must have a GitHub account for this workshop. If you do not have an account create one by following these instructions Signing up for a new GitHub Account
+ You need Github personal access token which will be used to create CICD pipeline for your CloudFormation templates.
 Follow the steps below to create a token:
  Verify your email address, if it hasn&amp;rsquo;t been verified yet. In the upper-right corner of any page, click your profile photo, then click Settings.</description>
     </item>
@@ -200,7 +210,8 @@ Follow the steps below to create a token:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://workshop.quickstart.awspartner.com/30_setup_cloud9/30_ee_dashboard.html</guid>
-      <description>**If you are doing this as as a self-paced exercise, skip this page.**   In a browser, go to the Event Engine dashboard page. Enter the 12 digit hash provided to your team and choose Accept Terms &amp;amp; Login.  On the next page, you&amp;rsquo;ll find a link to access the AWS Console and a link containing a Readme pointing to workshop instructions.  Go to the AWS console using the AWS Console link in your Event Engine dashboard.</description>
+      <description>If you are doing this as as a self-paced exercise, skip this page.
+  In a browser, go to the Event Engine dashboard page. Enter the 12 digit hash provided to your team and choose Accept Terms &amp;amp; Login.  On the next page, you&amp;rsquo;ll find a link to access the AWS Console and a link containing a Readme pointing to workshop instructions.  Go to the AWS console using the AWS Console link in your Event Engine dashboard.</description>
     </item>
     
     <item>

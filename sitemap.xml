@@ -120,10 +120,12 @@
   
   <url>
     <loc>https://workshop.quickstart.awspartner.com/categories.html</loc>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://workshop.quickstart.awspartner.com/tags.html</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>

@@ -27,8 +27,9 @@ When asked for a user name and password, use your GITHUB_USERNAME and GITHUB_TOK
       
       <guid>https://workshop.quickstart.awspartner.com/40_planning/10_deploy_quick_start.html</guid>
       <description>Deploy the Quick Start with the default Forge application by running the command below. This will create a new CloudFormation stack in your account with the name: Forge-Prod-Stack.
-bash run_cfn.sh  The run_cfn.sh bash script contains a single AWS CLI command to create a CloudFormation stack.
- &amp;lt;pre&amp;gt; aws cloudformation --region us-west-2 create-stack --stack-name Forge-Prod-Stack \ --template-url https://aws-cfn-samples.s3.amazonaws.com/quickstart-autodesk-forge/templates/autodesk-forge-master.json \ --parameters file://forge-prod-cfn.json \ --capabilities &amp;quot;CAPABILITY_IAM&amp;quot; --disable-rollback &amp;lt;/pre&amp;gt;   This step will take approximately 15 minutes, we&amp;rsquo;ll come back and verify that our base application has deployed correctly.</description>
+bash run_cfn.sh The run_cfn.sh bash script contains a single AWS CLI command to create a CloudFormation stack.
+ aws cloudformation &amp;ndash;region us-west-2 create-stack &amp;ndash;stack-name Forge-Prod-Stack &amp;ndash;template-url https://aws-cfn-samples.s3.amazonaws.com/quickstart-autodesk-forge/templates/autodesk-forge-master.json &amp;ndash;parameters file://forge-prod-cfn.json &amp;ndash;capabilities &amp;ldquo;CAPABILITY_IAM&amp;rdquo; &amp;ndash;disable-rollback 
+ This step will take approximately 15 minutes, we&amp;rsquo;ll come back and verify that our base application has deployed correctly.</description>
     </item>
     
   </channel>

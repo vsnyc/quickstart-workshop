@@ -8,7 +8,7 @@
     <meta property="og:url" content="https://aws.amazon.com/quickstart/" />
     <meta property="og:image" content="https://shivanshsingh.com/images/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="generator" content="Hugo 0.45.1" />
     <meta name="description" content="AWS Quick Start Workshop">
 <meta name="author" content="Shivansh Singh">
 
@@ -17,19 +17,19 @@
     <title>Deploy Quick Start :: AWS Quick Start Workshop</title>
 
     
-    <link href="/css/nucleus.css?1573959819" rel="stylesheet">
+    <link href="/css/nucleus.css?1573965527" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <link href="/css/hybrid.css?1573959819" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1573959819" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1573959819" rel="stylesheet">
-    <link href="/css/auto-complete.css?1573959819" rel="stylesheet">
-    <link href="/css/theme.css?1573959819" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1573959819" rel="stylesheet">
+    <link href="/css/hybrid.css?1573965527" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1573965527" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1573965527" rel="stylesheet">
+    <link href="/css/auto-complete.css?1573965527" rel="stylesheet">
+    <link href="/css/theme.css?1573965527" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1573965527" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1573959819" rel="stylesheet">
+      <link href="/css/theme-mine.css?1573965527" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1573959819"></script>
+    <script src="/js/jquery-2.x.min.js?1573965527"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -39,7 +39,7 @@
     </style>
     
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -70,14 +70,14 @@ if (!doNotTrack) {
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1573959819"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1573959819"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1573965527"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1573965527"></script>
 <script type="text/javascript">
     
         var baseurl = '\/';
     
 </script>
-<script type="text/javascript" src="/js/search.js?1573959819"></script>
+<script type="text/javascript" src="/js/search.js?1573965527"></script>
 
     
   </div>
@@ -814,24 +814,21 @@ if (!doNotTrack) {
 
 <ol>
 <li><p>Deploy the Quick Start with the default Forge application by running the command below. This will create a new CloudFormation stack in your account with the name: <em>Forge-Prod-Stack</em>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bash run_cfn.sh</code></pre></div></li>
-</ol>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bash run_cfn.sh</code></pre></div>
 <p>The <em>run_cfn.sh</em> bash script contains a single AWS CLI command to create a CloudFormation stack.</p>
 
-<pre><code>   &lt;pre&gt;
-    aws cloudformation --region us-west-2 create-stack --stack-name Forge-Prod-Stack \
-      --template-url https://aws-cfn-samples.s3.amazonaws.com/quickstart-autodesk-forge/templates/autodesk-forge-master.json \
-      --parameters file://forge-prod-cfn.json \
-      --capabilities &quot;CAPABILITY_IAM&quot; --disable-rollback
-    &lt;/pre&gt;
-</code></pre>
+<p><pre>
+    aws cloudformation &ndash;region us-west-2 create-stack &ndash;stack-name Forge-Prod-Stack <br />
+      &ndash;template-url <a href="https://aws-cfn-samples.s3.amazonaws.com/quickstart-autodesk-forge/templates/autodesk-forge-master.json" target="_blank">https://aws-cfn-samples.s3.amazonaws.com/quickstart-autodesk-forge/templates/autodesk-forge-master.json</a> <br />
+      &ndash;parameters file://forge-prod-cfn.json <br />
+      &ndash;capabilities &ldquo;CAPABILITY_IAM&rdquo; &ndash;disable-rollback
+    </pre></p></li>
 
-<ol>
-<li>This step will take approximately 15 minutes, we&rsquo;ll come back and verify that our base application has deployed correctly. To test your application, go to the CloudFormation console and choose the <code>Forge-Prod-Stack</code>. In the Outputs section, go to the link provided as the value of <code>ForgeAppURL</code>.
-<img src="/images/prod-stack-complete.png?height=60%&amp;width=60%" alt="arch" /></li>
-<li>Going to the <em>ForgeAppURL</em>, you can verify the default application. The view will differ based on what is stored in your buckets.
-<img src="/images/default-app-view.png?height=60%&amp;width=60%" alt="arch" /></li>
+<li><p>This step will take approximately 15 minutes, we&rsquo;ll come back and verify that our base application has deployed correctly. To test your application, go to the CloudFormation console and choose the <code>Forge-Prod-Stack</code>. In the Outputs section, go to the link provided as the value of <code>ForgeAppURL</code>.
+<img src="/images/prod-stack-complete.png?height=60%&amp;width=60%" alt="arch" /></p></li>
+
+<li><p>Going to the <em>ForgeAppURL</em>, you can verify the default application. The view will differ based on what is stored in your buckets.
+<img src="/images/default-app-view.png?height=60%&amp;width=60%" alt="arch" /></p></li>
 </ol>
 
 
@@ -1340,25 +1337,25 @@ if (!doNotTrack) {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1573959819"></script>
-    <script src="/js/perfect-scrollbar.min.js?1573959819"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1573959819"></script>
-    <script src="/js/jquery.sticky.js?1573959819"></script>
-    <script src="/js/featherlight.min.js?1573959819"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1573959819"></script>
-    <script src="/js/highlight.pack.js?1573959819"></script>
+    <script src="/js/clipboard.min.js?1573965527"></script>
+    <script src="/js/perfect-scrollbar.min.js?1573965527"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1573965527"></script>
+    <script src="/js/jquery.sticky.js?1573965527"></script>
+    <script src="/js/featherlight.min.js?1573965527"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1573965527"></script>
+    <script src="/js/highlight.pack.js?1573965527"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1573959819"></script>
-    <script src="/js/learn.js?1573959819"></script>
-    <script src="/js/hugo-learn.js?1573959819"></script>
+    <script src="/js/modernizr.custom.71422.js?1573965527"></script>
+    <script src="/js/learn.js?1573965527"></script>
+    <script src="/js/hugo-learn.js?1573965527"></script>
 
-    <link href="/mermaid/mermaid.css?1573959819" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1573959819"></script>
+    <link href="/mermaid/mermaid.css?1573965527" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1573965527"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
