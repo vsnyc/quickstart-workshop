@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Creating CICD Pipeline on AWS Quick Start Workshop</title>
+    <link>https://workshop.quickstart.awspartner.com/50_setup_cicd.html</link>
+    <description>Recent content in Creating CICD Pipeline on AWS Quick Start Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://workshop.quickstart.awspartner.com/50_setup_cicd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Updating the Quick Start</title>
+      <link>https://workshop.quickstart.awspartner.com/50_setup_cicd/1_update_quick_start.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://workshop.quickstart.awspartner.com/50_setup_cicd/1_update_quick_start.html</guid>
+      <description>Updating the Quick Start We will now update our app and setup a CodePipeline to deploy our changes automatically. We&amp;rsquo;ll replace the default app with an app that displays a dashboard for the models. In the Cloud9 IDE:
+ In terminal, go to the repo directory: cd quickstart-autodesk-forge Checkout develop branch: git checkout develop open quickstart-autodesk-forge/templates/autodesk-forge-nodejs.json. Change FORGE_APP_NAME in line 147 to forge-viewmodels-nodejs-aws-dashboard. Save the file. open quickstart-autodesk-forge/templates/autodesk-forge.json. Change Toggle value in line 801 from &amp;ldquo;false&amp;rdquo; to &amp;ldquo;true&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Setting up CICD pipeline</title>
+      <link>https://workshop.quickstart.awspartner.com/50_setup_cicd/10_setup_cicd_pipeline.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://workshop.quickstart.awspartner.com/50_setup_cicd/10_setup_cicd_pipeline.html</guid>
+      <description>Setting up the CICD pipeline  Let&amp;rsquo;s upload the quickstart-autodesk-forge.zip and the test config file taskcat_project_override.json to config bucket
+cd ~/environment aws s3 cp quickstart-autodesk-forge.zip s3://$CONFIG_BUCKET/ aws s3 cp taskcat_project_override.json s3://$CONFIG_BUCKET/  In a new browser tab, open the following launch stack link that will setup your CodePipeline. Most fields are populated with defaults, fill in only the blank fields.
+ Repository owner: your GitHub user name OAuth2 token: your GitHub oauth token created in Step 4 Email: your email address ConfigBucket: your config bucket created in Step 9, this value is saved in config-bucket.</description>
+    </item>
+    
+  </channel>
+</rss>

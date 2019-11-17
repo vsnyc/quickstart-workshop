@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wrapping Up on AWS Quick Start Workshop</title>
+    <link>https://workshop.quickstart.awspartner.com/90_wrapping_up.html</link>
+    <description>Recent content in Wrapping Up on AWS Quick Start Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://workshop.quickstart.awspartner.com/90_wrapping_up/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What&#39;s Next</title>
+      <link>https://workshop.quickstart.awspartner.com/90_wrapping_up/10_whats_next.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://workshop.quickstart.awspartner.com/90_wrapping_up/10_whats_next.html</guid>
+      <description>Now that you understand the Quick Start development process, and how you can place into a deployment pipeline using AWS CodePipeline, you can build complete automation of your Forge and BIM 360 application deployments on AWS using the approach.
+This results a continuous delivery pipeline where every step is automated insuring reliable updates to both the application and the infrastructure. Continuous delivery increases agility and allows your developers to focus their energy and time on development to delight your customers.</description>
+    </item>
+    
+    <item>
+      <title>Resources and links</title>
+      <link>https://workshop.quickstart.awspartner.com/90_wrapping_up/20_resources.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://workshop.quickstart.awspartner.com/90_wrapping_up/20_resources.html</guid>
+      <description> All the tools and resources we have for you to help with building Forge and BIM 360 Integration applications on AWS is listed here.
+Webinar  How to build your Forge application on AWS  Autodesk Quick Starts  Autodesk Forge Quick Start Autodesk BIM 360 Integration Autodesk Forge Quick Start workshop fork  Taskcat CI/CD Quick Start  CI/CD pipeline with Taskcat Quick Start Taskcat CI/CD Quick Start workshop fork  Quick Start guides and docs  Quick Start Contributor&amp;rsquo;s guide Quick Start builder&amp;rsquo;s guide Quick Start testing guide  Tools  TaskCat - CloudFormation testing tool  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,218 @@
+[
+{
+	"uri": "https://workshop.quickstart.awspartner.com/",
+	"title": "CI/CD of your Autodesk Forge applications using AWS Quick Starts",
+	"tags": [],
+	"description": "",
+	"content": " Continuous delivery: How to easily take your Forge application from Development to Production Welcome! In this workshop, you will learn how to easily take your Forge application from Development to Production. We will use the Autodesk Forge AWS Quick Start as a base, and build a AWS CodePipeline infrastructure for continuous integration and delivery (CI/CD). We will start with the basics of using GitHub as a source control management (SCM) system, deploy the Quick Start to get the base application up and then make modifications to code to update the application. With the CodePipeline setup in place, we'll demonstrate how you can easily test your infrastructure and application and promote your changes to production at the click of a button. "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/80_cleanup/1_cleanup.html",
+	"title": "Cleanup",
+	"tags": [],
+	"description": "",
+	"content": " **If you are doing this as part of a workshop using the Event Engine, you can skip this page.**  Clean up steps The order below is important to remove resources cleanly.   Go to AWS CloudFormation console in US West (N. California) Region and delete the root (non-nested) stack that starts with the name tcat-tag-forge-. We had setup the CI/CD pipeline to not auto-delete the test stack to save testing time. Go to AWS CloudFormation console in US West (Oregon) Region and first delete the Forge-Prod-Stack Once Forge-Prod-Stack is deleted, delete the Forge-App-CICD stack. Go to Amazon S3 console and delete the code and config buckets, you can search for au-demo to list the buckets. You can also get the full bucket names from the files: code-bucket.txt and config-bucket.txt. Go to AWS Cloud9 console and delete the Cloud9 workspace you created.  "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/10_prerequisites/1_github_account.html",
+	"title": "Create a GitHub account",
+	"tags": [],
+	"description": "",
+	"content": "If you already have a GitHub account, you can skip this page.   If you don\u0026rsquo;t already have a GitHub account: create one now\n Once you sign up, you may need to verify your email address.\n It is also a good security practice to setup two-factor authentication.\n  "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/40_planning/1_planning_deployment.html",
+	"title": "Planning Quick Start deployment",
+	"tags": [],
+	"description": "",
+	"content": " Clone git repo in Cloud9 IDE using the following command in your terminal, replacing GITHUB_USERNAME with your GitHub user name: git clone --recursive https://github.com/YOUR_GITHUB_USERNAME/quickstart-autodesk-forge.git\nWhen asked for a user name and password, use your GITHUB_USERNAME and GITHUB_TOKEN that you created earlier. Now you have the Quick Start code downloaded to your IDE so you can make any changes.  To deploy the Quick Start and the CodePipeline, we need to prepare the following.\n Two Amazon S3 buckets: one located in your deployment AWS Region (US West (Oregon)) that will host your configuration parameters; and one located in US East (N. Virginia) that will host your Quick Start production code. CloudFormation input configuration parameters for your Forge production stack, the formats differ slightly when the deployment is done directly using AWS CloudFormation vs. when triggered using AWS CodePipeline, so we\u0026rsquo;ll prepare two versions of the file. CloudFormation input configuration parameters for your test stack. The Quick Start comes with sensible defaults, so we only need to add a select few properties such as Forge secrets as a override. Two key pairs, one in US West (Oregon) for production stack and one in US West (N. California) for test stack. We had to split the production and test stacks in two regions to accommodate the fact that new AWS accounts only have 5 Elastic IPs by default.  To help build the above required setup, we have prepared a workshop assets bundle you can use to avoid manual steps. Feel free to look into the scripts to understand how we have automated the simple tasks.\n Download workshop assets. This will be located at the Root level of the project together with the quickstart-autodesk-forge folder.\ncd ~/environment curl -O https://aws-cfn-samples.s3.amazonaws.com/forge-workshop/forge-workshop-assets.zip Unzip workshop assets.\nunzip forge-workshop-assets.zip Let\u0026rsquo;s take a look at the extracted files.\n   Name Description     forge-prod-cfn.json Input parameter file to create your production stack using AWS CloudFormation. It contains a few tokens; e.g., YOUR_EMAIL, YOUR_FORGE_CLIENT_ID, that need to be replaced.   forge-prod-codepipeline.json Input parameter file to create/update your production stack using AWS CodePipeline. It contains a few tokens; e.g., YOUR_EMAIL, YOUR_FORGE_CLIENT_ID, that need to be replaced.   taskcat_project_override.json Input parameter file containing overrides for testing. It contains a few tokens; e.g., YOUR_EMAIL, YOUR_FORGE_CLIENT_ID, that need to be replaced.   make_buckets_key_pairs.sh A script that creates two S3 buckets and two key pairs as explained in Step 2.   update_artifacts.sh A script that replaces the tokens in the 3 json input files with values that you provide and then prepares a zip file to be used by CodePipeline as a source.   run_cfn.sh A helper script to create your production stack. It contains a single aws cloudformation create-stack command and is provided as a simple wrapper for an otherwise long command.    Let\u0026rsquo;s run the following command to make the buckets and key pairs.\nbash make_buckets_key_pairs.sh Sample output:\nmake_bucket: au-demo-config-5ac3c715-5857 Created config bucket: au-demo-config-5ac3c715-5857 make_bucket: au-demo-code-5ac3c715-5857 Created code hosting bucket: au-demo-code-5ac3c715-5857 Created forge-demo key pair in us-west-1 and us-west-2 The names of the created buckets are saved to file system as config-bucket.txt and code-bucket.txt for future reference. We\u0026rsquo;ll need them again in Section 3, Step 3. Export the config bucket to an environment variable for convenience.\nexport CONFIG_BUCKET=$(cat config-bucket.txt)\n Open update_artifacts.sh and fill lines 1-4 as follows. Be sure to not add any spaces after the properties: EMAIL, FORGE_CLIENT_ID, etc.\n   Property Value     EMAIL Any valid email address that you own. This will be used to send EC2 Auto Scaling and CodePipeline action notifications   FORGE_CLIENT_ID The Forge client ID of your pre-existing Forge application   FORGE_CLIENT_SECRET The Forge client secret of your pre-existing Forge application   IP_ADDRESS You can either update it with your IP address (check at http://checkip.amazonaws.com/, e.g. \u0026ldquo;1.2.3.4\\/32\u0026rdquo;) or with \u0026ldquo;0.0.0.0\\/0\u0026rdquo; to allow access from anywhere. Note the backslash for IP address value, it is required to escape it during substitution.    Now let\u0026rsquo;s execute the following command to use the updated input values and generate a zip file containing configuration needed for our CodePipeline that we\u0026rsquo;ll be creating in a few minutes.\nbash update_artifacts.sh\n Let\u0026rsquo;s verify the substituted tokens in forge-prod-cfn.json, forge-prod-codepipeline.json, and taskcat_project_override.json.\n  "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/60_validating/1_validating_codepipeline.html",
+	"title": "Validating CI/CD pipeline",
+	"tags": [],
+	"description": "",
+	"content": " Deployment options  Once the Forge-App-CICD stack reaches CREATE_COMPLETE status, go to the CodePipelineURL in the Outputs section.  The CodePipeline will sequentially execute each of the stages: Source, Test build, Git merge, Sync to S3, Prod we had talked about earlier.\n While the Test build stage is in progress, you can go to CloudFormation console in US West (N. California) Region to verify a test stack is being created.  It takes about 25 minutes for the pipeline to reach the PROD stage. When it reaches there it will wait for a manual approval to proceed.  Choose Review and then type in a description for the changes and choose Approve   "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/10_prerequisites/2_account.html",
+	"title": "Create an AWS account",
+	"tags": [],
+	"description": "",
+	"content": "**If you are doing this as part of a workshop using the Event Engine, you can skip this page. We will be providing an AWS account for you to use.**  If you already have an AWS account, and have IAM Administrator access, you can skip this page.  Your account must have the ability to create new IAM roles and scope other IAM permissions.   If you don\u0026rsquo;t already have an AWS account with Administrator access: create one now\n Once you have an AWS account, ensure you are following the remaining workshop steps as an IAM user with administrator access to the AWS account: Create a new IAM user to use for the workshop\n Enter the user details:  Attach the AdministratorAccess IAM Policy:  Click to create the new user:  Take note of the login URL and save:   "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/40_planning/10_deploy_quick_start.html",
+	"title": "Deploy Quick Start",
+	"tags": [],
+	"description": "",
+	"content": " Deploy the Quick Start with the default Forge application by running the command below. This will create a new CloudFormation stack in your account with the name: Forge-Prod-Stack.\nbash run_cfn.sh  The run_cfn.sh bash script contains a single AWS CLI command to create a CloudFormation stack.\n \u0026lt;pre\u0026gt; aws cloudformation --region us-west-2 create-stack --stack-name Forge-Prod-Stack \\ --template-url https://aws-cfn-samples.s3.amazonaws.com/quickstart-autodesk-forge/templates/autodesk-forge-master.json \\ --parameters file://forge-prod-cfn.json \\ --capabilities \u0026quot;CAPABILITY_IAM\u0026quot; --disable-rollback \u0026lt;/pre\u0026gt;   This step will take approximately 15 minutes, we\u0026rsquo;ll come back and verify that our base application has deployed correctly. To test your application, go to the CloudFormation console and choose the Forge-Prod-Stack. In the Outputs section, go to the link provided as the value of ForgeAppURL.  Going to the ForgeAppURL, you can verify the default application. The view will differ based on what is stored in your buckets.   "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/30_setup_cloud9/1_create_new_gitrepo.html",
+	"title": "Fork Quick Start repo",
+	"tags": [],
+	"description": "",
+	"content": "You must have a GitHub account to fork an exisitng repo. If you do not have an account create one by following these instructions [Signing up for a new GitHub Account](https://help.github.com/articles/signing-up-for-a-new-github-account/)  Make sure you are logged into your GitHub account  Each Quick Start consist of a GitHub repo where all the contents of the Quick Start live. This repo is a private GitHub repo during the development phase and made public after launch.\nFor this workshop, you will create a fork of the Autodesk Forge repo in your own github account.\n Using your web browser navigate to the vsnyc/quickstart-autodesk-forge repository. This is a slightly modified version of the upstream aws-quickstart/quickstart-autodesk-forge repo to assist with the workshop, but the concept stays the same in using a base repository for iterative development.\n Click Fork button in the top-right corner of the page.  If you belong to multiple GitHub organizations, choose the account you would like to use for this fork.\n  You now, have a fork of the original vsnyc/quickstart-autodesk-forge in your selected GitHub account.\n"
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/10_prerequisites.html",
+	"title": "Prerequisites",
+	"tags": [],
+	"description": "",
+	"content": " Prerequisites for the Workshop  Create a GitHub account   Create an AWS account   Create a Cloud9 Workspace   Create Github Token   "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/50_setup_cicd/1_update_quick_start.html",
+	"title": "Updating the Quick Start",
+	"tags": [],
+	"description": "",
+	"content": " Updating the Quick Start We will now update our app and setup a CodePipeline to deploy our changes automatically. We\u0026rsquo;ll replace the default app with an app that displays a dashboard for the models. In the Cloud9 IDE:\n In terminal, go to the repo directory: cd quickstart-autodesk-forge Checkout develop branch: git checkout develop open quickstart-autodesk-forge/templates/autodesk-forge-nodejs.json. Change FORGE_APP_NAME in line 147 to forge-viewmodels-nodejs-aws-dashboard. Save the file. open quickstart-autodesk-forge/templates/autodesk-forge.json. Change Toggle value in line 801 from \u0026ldquo;false\u0026rdquo; to \u0026ldquo;true\u0026rdquo;. Save the file. In terminal, from the quickstart-autodesk-forge directory, add the files, commit and push. When asked for a password, use your GitHub personal access token created earlier (see Create GitHub token).\ngit add -A git commit -m \u0026#34;Updated app to include a dashboard\u0026#34; git push  "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/60_validating/10_validating_code_update.html",
+	"title": "Validating code update",
+	"tags": [],
+	"description": "",
+	"content": " After you have approved the change, the CodePipeline will execute the ChangeSet. Go to the CloudFormation console, you should see Forge-Prod-Stack being updated.  In about 5 minutes, the stack will reach UPDATE_COMPLETE status.  Go to the ForgeAppURL again and verify that your application now shows a dashboard for your models. (Tested in Chrome browser)   "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/20_getting_started/1_what_we_will_build.html",
+	"title": "What We&#39;ll Build",
+	"tags": [],
+	"description": "",
+	"content": " Our Goal In this workshop, we will learn:\n Setting-up source control for Quick Start artifacts Setting-up a development environment to build your Forge applications using the AWS Quick Start Deploying the default Autodesk Forge Quick Start to use as a starting point of your production deployment Setting-up CICD pipeline to continuously build, test, and deploy your Forge application code changes Making code updates to the Forge application Testing the code updates automatically using AWS CodePipeline Releasing the changes to production after a manual approval  "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/90_wrapping_up/10_whats_next.html",
+	"title": "What&#39;s Next",
+	"tags": [],
+	"description": "",
+	"content": "Now that you understand the Quick Start development process, and how you can place into a deployment pipeline using AWS CodePipeline, you can build complete automation of your Forge and BIM 360 application deployments on AWS using the approach.\nThis results a continuous delivery pipeline where every step is automated insuring reliable updates to both the application and the infrastructure. Continuous delivery increases agility and allows your developers to focus their energy and time on development to delight your customers.\nI hope this workshop has given you some insight into how automation can ease deployment and operations, freeing up time to focus on development and enabling greater agility.\n"
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/20_getting_started/2_quick_start_architecture.html",
+	"title": "AWS Quick Start Architecture",
+	"tags": [],
+	"description": "",
+	"content": " AWS Quick Start Architecture Here\u0026rsquo;s the architecture of what we will build:\nThis architecture contains following components:\n A virtual private cloud (VPC) that spans two Availability Zones, configured with two public and two private subnets. In a public subnet, a bastion host to provide Secure Shell (SSH) access to the web servers. The bastion host is maintained by an Auto Scaling group that spans multiple Availability Zones, and is configured to ensure there is always one bastion host available. AWS-managed network address translation (NAT) gateways deployed into the public subnets and configured with an Elastic IP address for outbound internet connectivity. The NAT gateways are used for internet access for all EC2 instances launched within the private network. In the private subnets, Autodesk Forge application server instances across both Availability Zones, to ensure high availability. Auto Scaling enabled for the Autodesk Forge cluster, to automatically add or remove servers based on their use. Auto Scaling provides additional servers during peak hours and lowers costs by removing servers during off hours. This functionality is tightly integrated with the Application Load Balancer, and automatically adds and removes instances from the load balancer. The default installation sets up low and high CPU-based thresholds for scaling the instance capacity up or down. You can modify these thresholds during launch and after deployment.\n The Elastic Load Balancing service, which provides HTTP and HTTPS load balancing across the Autodesk Forge instances. This Quick Start uses an Application Load Balancer, which is configured to use either HTTP or HTTPS. An AWS Identity and Access Management (IAM) role with fine-grained permissions for access to AWS services necessary for the deployment process.\n Appropriate security groups for each instance or function to restrict access to only necessary protocols and ports. For example, access to HTTP(S) server ports on Amazon EC2 web servers is limited to the Application Load Balancer. Optionally, Amazon Route 53 as your public Domain Name System (DNS) for resolving your Forge site’s domain name. When you choose to deploy the application with a custom domain and Security Sockets Layer (SSL) certificate, a new RecordSet in your pre-existing Route 53 Hosted Zone will be created. AWS Systems Manager (SSM) parameters in the AWS Systems Manager Parameter Store to securely store the Forge client ID and secret.  To learn more about this, visit the Autodesk Forge on AWS Quick Start and view the deployment guide.\n"
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/10_prerequisites/20_workspace.html",
+	"title": "Create a Cloud9 Workspace",
+	"tags": [],
+	"description": "",
+	"content": " AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don\u0026rsquo;t need to install files or configure your development machine to start new projects.\n**If you are doing this as part of a workshop using the Event Engine, you can skip this page. We have pre-provisioned a Cloud9 environment for you.**  The Cloud9 workspace should be built by an IAM user with Administrator privileges, not the root account user. Please ensure you are logged in as an IAM user, not the root account user.  Ad blockers, JavaScript disablers, and tracking blockers should be disabled for the cloud9 domain, otherwise connecting to the workspace might be impacted.  Create a new environment  Go to the Cloud9 web console Select Create environment Name it workshop, and go to the Next step Select Other instance type and pick t2.medium Leave all of the environment settings as they are, and go to the Next step Click Create environment  Clean up the layout When the environment comes up, customize the layout by closing the welcome tab and lower work area, and opening a new terminal tab in the main work area: Your workspace should now look like this: If you like this theme, you can choose it yourself by selecting View / Themes / Solarized / Solarized Dark in the Cloud9 workspace menu.\n"
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/20_getting_started.html",
+	"title": "Getting Started",
+	"tags": [],
+	"description": "",
+	"content": " Getting Started  What We\u0026#39;ll Build   AWS Quick Start Architecture   CI/CD Pipeline Architecture   "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/30_setup_cloud9/20_create_scaffolding.html",
+	"title": "Quick Start scaffolding",
+	"tags": [],
+	"description": "",
+	"content": "The GitHub repository for the Autodesk Forge Quick Start includes the following folders:\n ci - Contains the configuration file and parameter files used for automated testing. templates - Contains the AWS CloudFormation templates for the Quick Start. The templates can be in .json or .yaml file formats. packages - Contains the Forge application that gets deployed as part of the Quick Start submodules - Used for any referenced Quick Starts that are configured as submodules of the Quick Start. This Quick Start used AWS VPC and Linux Bastion quick starts as submodules.  "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/90_wrapping_up/20_resources.html",
+	"title": "Resources and links",
+	"tags": [],
+	"description": "",
+	"content": " All the tools and resources we have for you to help with building Forge and BIM 360 Integration applications on AWS is listed here.\nWebinar  How to build your Forge application on AWS  Autodesk Quick Starts  Autodesk Forge Quick Start Autodesk BIM 360 Integration Autodesk Forge Quick Start workshop fork  Taskcat CI/CD Quick Start  CI/CD pipeline with Taskcat Quick Start Taskcat CI/CD Quick Start workshop fork  Quick Start guides and docs  Quick Start Contributor\u0026rsquo;s guide Quick Start builder\u0026rsquo;s guide Quick Start testing guide  Tools  TaskCat - CloudFormation testing tool  "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/50_setup_cicd/10_setup_cicd_pipeline.html",
+	"title": "Setting up CICD pipeline",
+	"tags": [],
+	"description": "",
+	"content": " Setting up the CICD pipeline  Let\u0026rsquo;s upload the quickstart-autodesk-forge.zip and the test config file taskcat_project_override.json to config bucket\ncd ~/environment aws s3 cp quickstart-autodesk-forge.zip s3://$CONFIG_BUCKET/ aws s3 cp taskcat_project_override.json s3://$CONFIG_BUCKET/  In a new browser tab, open the following launch stack link that will setup your CodePipeline. Most fields are populated with defaults, fill in only the blank fields.\n Repository owner: your GitHub user name OAuth2 token: your GitHub oauth token created in Step 4 Email: your email address ConfigBucket: your config bucket created in Step 9, this value is saved in config-bucket.txt CodeHostingBucket: your code hosting bucket created in Step 9, this value is saved in code-bucket.txt The launch link above launches a slightly modified version of the AWS CI/CD pipeline Quick Start. We have taken the base Quick Start and added a couple of new stages as described earlier in CI/CD architecture section. You can view the updated code on GitHub.   Select both the check boxes in the Capabilities section and choose Create Stack. After the Forge-App-CICD stack is created, it will automatically execute the CodePipeline.   "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/20_getting_started/3_cicd_architecture.html",
+	"title": "CI/CD Pipeline Architecture",
+	"tags": [],
+	"description": "",
+	"content": " CI/CD Pipeline Architecture Here\u0026rsquo;s the architecture of the CodePipeline we will build:\nThis architecture contains following components:\n Source stage: The Source stage consists of your Forge Quick Start code located in a GitHub repository and the configuration files you\u0026rsquo;ll need to run your test and production stacks stored securely in Amazon S3.\n Test build stage: In the event of a source change (code is committed to GitHub or a configuration update is pushed to Amazon S3), a trigger will start the AWS CodePipeline build process, pulling the code from these locations and running a build using AWS CodeBuild. The test CodeBuild project invokes TaskCat to test your source modifications. If the tests are successful, we move on to the next stage. Git merge stage: After the tests pass, we use a custom action using AWS Lambda to merge the development branch to the master branch Sync to S3 stage: To run the updated code in production, we create a CodeBuild job that takes the updated master branch and recursively copies the GitHub repository contents to your bucket in Amazon S3 that holds the production templates. Prod stage: After the new code has synced to Amazon S3, the pipeline invokes the CloudFormation deployment stage. In this stage, we first create a change set that an administrator could review to understand what changes are included in the deployment. And then after an administrator manually approves the change, the deployment will proceed.  At the end, when the pipeline execution is successful, you will see your change in GitHub deployed to production automatically with just one manual step that requires you to choose Approve action before the final deployment.\nTo learn more about this, visit the Forge community blog.\n"
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/10_prerequisites/30_github_token.html",
+	"title": "Create Github Token",
+	"tags": [],
+	"description": "",
+	"content": "You must have a GitHub account for this workshop. If you do not have an account create one by following these instructions [Signing up for a new GitHub Account](https://help.github.com/articles/signing-up-for-a-new-github-account/) You need Github personal access token which will be used to create CICD pipeline for your CloudFormation templates.\nFollow the steps below to create a token:\n Verify your email address, if it hasn\u0026rsquo;t been verified yet. In the upper-right corner of any page, click your profile photo, then click Settings.  In the left sidebar, click Developer settings.  In the left sidebar, click Personal access tokens.  Click Generate new token.  Give your token a descriptive name. Select the scopes, or permissions, you\u0026rsquo;d like to grant this token. For this workshop, select repo and admin:repo_hook.  Click Generate token.  Copy the token to your clipboard and save it securely. For security reasons, after you navigate off the page, you will not be able to see the token again.   Treat your tokens like passwords and keep them secret.  "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/30_setup_cloud9.html",
+	"title": "Setting-up Cloud9",
+	"tags": [],
+	"description": "",
+	"content": " Setting-up Github Repo  Fork Quick Start repo   Quick Start scaffolding   Using the Event Engine dashboard   Setup Git CLI   "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/30_setup_cloud9/30_ee_dashboard.html",
+	"title": "Using the Event Engine dashboard",
+	"tags": [],
+	"description": "",
+	"content": "**If you are doing this as as a self-paced exercise, skip this page.**   In a browser, go to the Event Engine dashboard page. Enter the 12 digit hash provided to your team and choose Accept Terms \u0026amp; Login.  On the next page, you\u0026rsquo;ll find a link to access the AWS Console and a link containing a Readme pointing to workshop instructions.  Go to the AWS console using the AWS Console link in your Event Engine dashboard. In the Services, search for Cloud9 and go to Cloud9 console. You will find a Cloud9 IDE pre-provisioned with the name that starts with forge-workshop-. Choose Open IDE.   "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/40_planning.html",
+	"title": "Planning the deployment",
+	"tags": [],
+	"description": "",
+	"content": " Planning Autodesk Forge Quick Start Deployment  Planning Quick Start deployment   Deploy Quick Start   "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/30_setup_cloud9/40_setup_github_cli.html",
+	"title": "Setup Git CLI",
+	"tags": [],
+	"description": "",
+	"content": " Through out this workshop, you will run GitHub commands from your Cloud9 workspace terminal window, to perform different operations on your GitHub repo.\nBy default, Cloud9 workspace comes installed with Git CLI. However, you need to configure it to use with your GitHub account.\nConfigure Git Profile In the terminal, run these two commands, one at a time, substituting your Git name and email address for USER_NAME and EMAIL_ADDRESS, respectively.\ncd ~/environment\ngit config --global user.name \u0026quot;USER_NAME\u0026quot;\ngit config --global user.email EMAIL_ADDRESS\nConfigure Git Credentials There are 2 ways you can connect to your GitHub repository from the terminal - SSH and HTTPS. Using an HTTPS remote URL has some advantages: it\u0026rsquo;s easier to set up than SSH, and usually works through strict firewalls and proxies. However, it also prompts you to enter your GitHub credentials every time you pull or push a repository.\nYou can setup an SSH connection to GitHub, by following the GitHub documentation. However, for this workshop we will use HTTPS connection.\nTo avoid prompts to enter your GitHub credentials every time you pull or push a repository, you will configure password caching.\nTurn on the credential helper so that Git will save your password in memory for some time. By default, Git will cache your password for 15 minutes.\nIn terminal, , enter the following:\ngit config --global credential.helper cache\nTo change the default password cache timeout from 15 mins to 1 hr, enter the following:\ngit config --global credential.helper 'cache --timeout=3600'\n"
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/50_setup_cicd.html",
+	"title": "Creating CICD Pipeline",
+	"tags": [],
+	"description": "",
+	"content": " Creating CICD Pipeline  Updating the Quick Start   Setting up CICD pipeline   "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/60_validating.html",
+	"title": "Validating updates",
+	"tags": [],
+	"description": "",
+	"content": " Writing CloudFormation templates  Validating CI/CD pipeline   Validating code update   "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/80_cleanup.html",
+	"title": "Cleanup",
+	"tags": [],
+	"description": "",
+	"content": " Cleanup  Cleanup   "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/90_wrapping_up.html",
+	"title": "Wrapping Up",
+	"tags": [],
+	"description": "",
+	"content": " Wrapping Up  What\u0026#39;s Next   Resources and links   "
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/categories.html",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://workshop.quickstart.awspartner.com/tags.html",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

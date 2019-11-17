@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Planning the deployment on AWS Quick Start Workshop</title>
+    <link>https://workshop.quickstart.awspartner.com/40_planning.html</link>
+    <description>Recent content in Planning the deployment on AWS Quick Start Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://workshop.quickstart.awspartner.com/40_planning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Planning Quick Start deployment</title>
+      <link>https://workshop.quickstart.awspartner.com/40_planning/1_planning_deployment.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://workshop.quickstart.awspartner.com/40_planning/1_planning_deployment.html</guid>
+      <description>Clone git repo in Cloud9 IDE using the following command in your terminal, replacing GITHUB_USERNAME with your GitHub user name: git clone --recursive https://github.com/YOUR_GITHUB_USERNAME/quickstart-autodesk-forge.git
+When asked for a user name and password, use your GITHUB_USERNAME and GITHUB_TOKEN that you created earlier. Now you have the Quick Start code downloaded to your IDE so you can make any changes.  To deploy the Quick Start and the CodePipeline, we need to prepare the following.</description>
+    </item>
+    
+    <item>
+      <title>Deploy Quick Start</title>
+      <link>https://workshop.quickstart.awspartner.com/40_planning/10_deploy_quick_start.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://workshop.quickstart.awspartner.com/40_planning/10_deploy_quick_start.html</guid>
+      <description>Deploy the Quick Start with the default Forge application by running the command below. This will create a new CloudFormation stack in your account with the name: Forge-Prod-Stack.
+bash run_cfn.sh  The run_cfn.sh bash script contains a single AWS CLI command to create a CloudFormation stack.
+ &amp;lt;pre&amp;gt; aws cloudformation --region us-west-2 create-stack --stack-name Forge-Prod-Stack \ --template-url https://aws-cfn-samples.s3.amazonaws.com/quickstart-autodesk-forge/templates/autodesk-forge-master.json \ --parameters file://forge-prod-cfn.json \ --capabilities &amp;quot;CAPABILITY_IAM&amp;quot; --disable-rollback &amp;lt;/pre&amp;gt;   This step will take approximately 15 minutes, we&amp;rsquo;ll come back and verify that our base application has deployed correctly.</description>
+    </item>
+    
+  </channel>
+</rss>

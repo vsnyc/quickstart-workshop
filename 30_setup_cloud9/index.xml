@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Setting-up Cloud9 on AWS Quick Start Workshop</title>
+    <link>https://workshop.quickstart.awspartner.com/30_setup_cloud9.html</link>
+    <description>Recent content in Setting-up Cloud9 on AWS Quick Start Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://workshop.quickstart.awspartner.com/30_setup_cloud9/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fork Quick Start repo</title>
+      <link>https://workshop.quickstart.awspartner.com/30_setup_cloud9/1_create_new_gitrepo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://workshop.quickstart.awspartner.com/30_setup_cloud9/1_create_new_gitrepo.html</guid>
+      <description>You must have a GitHub account to fork an exisitng repo. If you do not have an account create one by following these instructions [Signing up for a new GitHub Account](https://help.github.com/articles/signing-up-for-a-new-github-account/)  Make sure you are logged into your GitHub account  Each Quick Start consist of a GitHub repo where all the contents of the Quick Start live. This repo is a private GitHub repo during the development phase and made public after launch.</description>
+    </item>
+    
+    <item>
+      <title>Quick Start scaffolding</title>
+      <link>https://workshop.quickstart.awspartner.com/30_setup_cloud9/20_create_scaffolding.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://workshop.quickstart.awspartner.com/30_setup_cloud9/20_create_scaffolding.html</guid>
+      <description>The GitHub repository for the Autodesk Forge Quick Start includes the following folders:
+ ci - Contains the configuration file and parameter files used for automated testing. templates - Contains the AWS CloudFormation templates for the Quick Start. The templates can be in .json or .yaml file formats. packages - Contains the Forge application that gets deployed as part of the Quick Start submodules - Used for any referenced Quick Starts that are configured as submodules of the Quick Start.</description>
+    </item>
+    
+    <item>
+      <title>Using the Event Engine dashboard</title>
+      <link>https://workshop.quickstart.awspartner.com/30_setup_cloud9/30_ee_dashboard.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://workshop.quickstart.awspartner.com/30_setup_cloud9/30_ee_dashboard.html</guid>
+      <description>**If you are doing this as as a self-paced exercise, skip this page.**   In a browser, go to the Event Engine dashboard page. Enter the 12 digit hash provided to your team and choose Accept Terms &amp;amp; Login.  On the next page, you&amp;rsquo;ll find a link to access the AWS Console and a link containing a Readme pointing to workshop instructions.  Go to the AWS console using the AWS Console link in your Event Engine dashboard.</description>
+    </item>
+    
+    <item>
+      <title>Setup Git CLI</title>
+      <link>https://workshop.quickstart.awspartner.com/30_setup_cloud9/40_setup_github_cli.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://workshop.quickstart.awspartner.com/30_setup_cloud9/40_setup_github_cli.html</guid>
+      <description>Through out this workshop, you will run GitHub commands from your Cloud9 workspace terminal window, to perform different operations on your GitHub repo.
+By default, Cloud9 workspace comes installed with Git CLI. However, you need to configure it to use with your GitHub account.
+Configure Git Profile In the terminal, run these two commands, one at a time, substituting your Git name and email address for USER_NAME and EMAIL_ADDRESS, respectively.</description>
+    </item>
+    
+  </channel>
+</rss>

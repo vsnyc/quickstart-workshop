@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/80_cleanup/1_cleanup.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/10_prerequisites/1_github_account.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/40_planning/1_planning_deployment.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/60_validating/1_validating_codepipeline.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/10_prerequisites/2_account.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/40_planning/10_deploy_quick_start.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/30_setup_cloud9/1_create_new_gitrepo.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/10_prerequisites.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/50_setup_cicd/1_update_quick_start.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/60_validating/10_validating_code_update.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/20_getting_started/1_what_we_will_build.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/90_wrapping_up/10_whats_next.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/20_getting_started/2_quick_start_architecture.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/10_prerequisites/20_workspace.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/20_getting_started.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/30_setup_cloud9/20_create_scaffolding.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/90_wrapping_up/20_resources.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/50_setup_cicd/10_setup_cicd_pipeline.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/20_getting_started/3_cicd_architecture.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/10_prerequisites/30_github_token.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/30_setup_cloud9.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/30_setup_cloud9/30_ee_dashboard.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/40_planning.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/30_setup_cloud9/40_setup_github_cli.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/50_setup_cicd.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/60_validating.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/80_cleanup.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/90_wrapping_up.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/categories.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://workshop.quickstart.awspartner.com/tags.html</loc>
+  </url>
+  
+</urlset>

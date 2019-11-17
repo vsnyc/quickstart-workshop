@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Getting Started on AWS Quick Start Workshop</title>
+    <link>https://workshop.quickstart.awspartner.com/20_getting_started.html</link>
+    <description>Recent content in Getting Started on AWS Quick Start Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://workshop.quickstart.awspartner.com/20_getting_started/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What We&#39;ll Build</title>
+      <link>https://workshop.quickstart.awspartner.com/20_getting_started/1_what_we_will_build.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://workshop.quickstart.awspartner.com/20_getting_started/1_what_we_will_build.html</guid>
+      <description> Our Goal In this workshop, we will learn:
+ Setting-up source control for Quick Start artifacts Setting-up a development environment to build your Forge applications using the AWS Quick Start Deploying the default Autodesk Forge Quick Start to use as a starting point of your production deployment Setting-up CICD pipeline to continuously build, test, and deploy your Forge application code changes Making code updates to the Forge application Testing the code updates automatically using AWS CodePipeline Releasing the changes to production after a manual approval  </description>
+    </item>
+    
+    <item>
+      <title>AWS Quick Start Architecture</title>
+      <link>https://workshop.quickstart.awspartner.com/20_getting_started/2_quick_start_architecture.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://workshop.quickstart.awspartner.com/20_getting_started/2_quick_start_architecture.html</guid>
+      <description>AWS Quick Start Architecture Here&amp;rsquo;s the architecture of what we will build:
+This architecture contains following components:
+ A virtual private cloud (VPC) that spans two Availability Zones, configured with two public and two private subnets. In a public subnet, a bastion host to provide Secure Shell (SSH) access to the web servers. The bastion host is maintained by an Auto Scaling group that spans multiple Availability Zones, and is configured to ensure there is always one bastion host available.</description>
+    </item>
+    
+    <item>
+      <title>CI/CD Pipeline Architecture</title>
+      <link>https://workshop.quickstart.awspartner.com/20_getting_started/3_cicd_architecture.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://workshop.quickstart.awspartner.com/20_getting_started/3_cicd_architecture.html</guid>
+      <description>CI/CD Pipeline Architecture Here&amp;rsquo;s the architecture of the CodePipeline we will build:
+This architecture contains following components:
+ Source stage: The Source stage consists of your Forge Quick Start code located in a GitHub repository and the configuration files you&amp;rsquo;ll need to run your test and production stacks stored securely in Amazon S3.
+ Test build stage: In the event of a source change (code is committed to GitHub or a configuration update is pushed to Amazon S3), a trigger will start the AWS CodePipeline build process, pulling the code from these locations and running a build using AWS CodeBuild.</description>
+    </item>
+    
+  </channel>
+</rss>

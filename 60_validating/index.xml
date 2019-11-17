@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Validating updates on AWS Quick Start Workshop</title>
+    <link>https://workshop.quickstart.awspartner.com/60_validating.html</link>
+    <description>Recent content in Validating updates on AWS Quick Start Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://workshop.quickstart.awspartner.com/60_validating/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Validating CI/CD pipeline</title>
+      <link>https://workshop.quickstart.awspartner.com/60_validating/1_validating_codepipeline.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://workshop.quickstart.awspartner.com/60_validating/1_validating_codepipeline.html</guid>
+      <description>Deployment options  Once the Forge-App-CICD stack reaches CREATE_COMPLETE status, go to the CodePipelineURL in the Outputs section.  The CodePipeline will sequentially execute each of the stages: Source, Test build, Git merge, Sync to S3, Prod we had talked about earlier.
+ While the Test build stage is in progress, you can go to CloudFormation console in US West (N. California) Region to verify a test stack is being created.</description>
+    </item>
+    
+    <item>
+      <title>Validating code update</title>
+      <link>https://workshop.quickstart.awspartner.com/60_validating/10_validating_code_update.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://workshop.quickstart.awspartner.com/60_validating/10_validating_code_update.html</guid>
+      <description> After you have approved the change, the CodePipeline will execute the ChangeSet. Go to the CloudFormation console, you should see Forge-Prod-Stack being updated.  In about 5 minutes, the stack will reach UPDATE_COMPLETE status.  Go to the ForgeAppURL again and verify that your application now shows a dashboard for your models. (Tested in Chrome browser)   </description>
+    </item>
+    
+  </channel>
+</rss>
