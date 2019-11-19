@@ -15,6 +15,7 @@ weight = 1
    2. CloudFormation input configuration parameters for your Forge production stack, the formats differ slightly when the deployment is done directly using AWS CloudFormation vs. when triggered using AWS CodePipeline, so we'll prepare two versions of the file.
    3. CloudFormation input configuration parameters for your test stack. The Quick Start comes with sensible defaults, so we only need to add a select few properties such as Forge secrets as a override.
    4. Two key pairs, one in US West (Oregon) for production stack and one in US West (N. California) for test stack. We had to split the production and test stacks in two regions to accommodate the fact that new AWS accounts only have 5 Elastic IPs by default.
+   5. The Client ID and Secret of your Forge app.
 3. To help build the above required setup, we have prepared a workshop assets bundle you can use to avoid manual steps. Feel free to look into the scripts to understand how we have automated the simple tasks.
 4. Download workshop assets. This will be located at the Root level of the project together with the quickstart-autodesk-forge folder.
     ```bash
