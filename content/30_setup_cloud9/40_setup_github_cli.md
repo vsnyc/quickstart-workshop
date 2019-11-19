@@ -16,7 +16,7 @@ In the terminal, run these two commands, one at a time, substituting your Git na
 
 `git config --global user.name "USER_NAME"`
 
-`git config --global user.email EMAIL_ADDRESS`
+`git config --global user.email "EMAIL_ADDRESS"`
 
 ### Configure Git Credentials
 
