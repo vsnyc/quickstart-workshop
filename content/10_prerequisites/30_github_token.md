@@ -1,5 +1,5 @@
 +++
-title = "Create Github Token"
+title = "4. Create Github Token"
 chapter = false
 weight = 30
 +++

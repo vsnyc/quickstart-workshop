@@ -1,5 +1,5 @@
 +++
-title = "Create a Cloud9 Workspace"
+title = "3. Create a Cloud9 Workspace"
 chapter = false
 weight = 20
 +++

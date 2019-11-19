@@ -1,5 +1,5 @@
 +++
-title = "Create a GitHub account"
+title = "1. Create a GitHub account"
 chapter = false
 weight = 1
 +++
