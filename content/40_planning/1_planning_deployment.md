@@ -26,13 +26,13 @@ weight = 1
     ```bash
     unzip forge-workshop-assets.zip
     ```
-6. Let's take a look at the extracted files.
+6. Let's take a look at the extracted files, but do not edit them yet.
 
        Name     | Description
        ---------|------
-       forge-prod-cfn.json | Input parameter file to create your production stack using AWS CloudFormation. It contains a few tokens; e.g., `YOUR_EMAIL`, `YOUR_FORGE_CLIENT_ID`, that need to be replaced.
-       forge-prod-codepipeline.json | Input parameter file to create/update your production stack using AWS CodePipeline. It contains a few tokens; e.g., `YOUR_EMAIL`, `YOUR_FORGE_CLIENT_ID`, that need to be replaced.
-       taskcat_project_override.json | Input parameter file containing overrides for testing. It contains a few tokens; e.g., `YOUR_EMAIL`, `YOUR_FORGE_CLIENT_ID`, that need to be replaced.    
+       forge-prod-cfn.json | Input parameter file to create your production stack using AWS CloudFormation. It contains a few tokens; e.g., `YOUR_EMAIL`, `YOUR_FORGE_CLIENT_ID`, etc. that need to be replaced.
+       forge-prod-codepipeline.json | Input parameter file to create/update your production stack using AWS CodePipeline. It contains a few tokens; e.g., `YOUR_EMAIL`, `YOUR_FORGE_CLIENT_ID`, etc. that need to be replaced.
+       taskcat_project_override.json | Input parameter file containing overrides for testing. It contains a few tokens; e.g., `YOUR_EMAIL`, `YOUR_FORGE_CLIENT_ID`, etc. that need to be replaced.    
        make_buckets_key_pairs.sh | A script that creates two S3 buckets and two key pairs as explained in Step 2.
        update_artifacts.sh | A script that replaces the tokens in the 3 json input files with values that you provide and then prepares a zip file to be used by CodePipeline as a source.
        run_cfn.sh | A helper script to create your production stack. It contains a single `aws cloudformation create-stack` command and is provided as a simple wrapper for an otherwise long command.
@@ -51,7 +51,9 @@ weight = 1
     ```
 8. The names of the created buckets are saved to file system as `config-bucket.txt` and `code-bucket.txt` for future reference. We'll need them again in Section 3, Step 3. Export the config bucket to an environment variable for convenience.  
        `export CONFIG_BUCKET=$(cat config-bucket.txt)`   
-9. Open update_artifacts.sh and fill lines 1-4 as follows. Be sure to not add any spaces after the properties: `EMAIL`, `FORGE_CLIENT_ID`, etc.
+9. Echo the environment variable to verify it got saved correctly.
+        `echo $CONFIG_BUCKET`      
+10. Open update_artifacts.sh and fill lines 1-4 as follows. Be sure to not add any spaces after the properties: `EMAIL`, `FORGE_CLIENT_ID`, etc.
       
        Property | Value
        ---------|------
@@ -59,7 +61,7 @@ weight = 1
        FORGE_CLIENT_ID  | The Forge client ID of your pre-existing Forge application
        FORGE_CLIENT_SECRET | The Forge client secret of your pre-existing Forge application
        IP_ADDRESS | You can either update it with your IP address (check at http://checkip.amazonaws.com/, e.g. "1.2.3.4\\/32") or with "0.0.0.0\\/0" to allow access from anywhere. Note the backslash for IP address value, it is required to escape it during substitution.
-10. Now let's execute the following command to use the updated input values and generate a zip file containing configuration needed for our CodePipeline that we'll be creating in a few minutes.
+11. Now let's execute the following command to use the updated input values and generate a zip file containing configuration needed for our CodePipeline that we'll be creating in a few minutes.
 
     `bash update_artifacts.sh`       
-11. Let's verify the substituted tokens in `forge-prod-cfn.json`, `forge-prod-codepipeline.json`, and `taskcat_project_override.json`.    
+12. Let's verify the substituted tokens in `forge-prod-cfn.json`, `forge-prod-codepipeline.json`, and `taskcat_project_override.json`.    

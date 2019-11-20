@@ -12,7 +12,7 @@ You must have a GitHub account to fork an exisitng repo. If you do not have an a
 Make sure you are logged into your GitHub account
 {{% /notice %}}
 
-Each Quick Start consist of a GitHub repo where all the contents of the Quick Start live. This repo is a private GitHub repo during the development phase and made public after launch. 
+Each AWS Quick Start consists of a GitHub repo where all the contents of the Quick Start live.
 
 For this workshop, you will create a fork of the Autodesk Forge repo in your own github account.
 

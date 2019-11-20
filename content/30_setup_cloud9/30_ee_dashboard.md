@@ -4,10 +4,6 @@ chapter = false
 weight = 30
 +++
 
-{{% notice tip %}}
-**If you are doing this as as a self-paced exercise, skip this page.**
-{{% /notice %}}
-
 1. In a browser, go to the [Event Engine dashboard](https://dashboard.eventengine.run/) page.
 2. Enter the 12 digit hash provided to your team and choose **Accept Terms & Login**.
 ![arch](/images/ee-dashboard-login.png)

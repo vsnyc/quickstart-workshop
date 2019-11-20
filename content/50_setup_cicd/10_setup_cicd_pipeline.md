@@ -8,11 +8,12 @@ weight = 20
 
 1. Let's upload the `quickstart-autodesk-forge.zip` and the test config file  `taskcat_project_override.json` to config bucket  
 
-    ```
-    cd ~/environment
-    aws s3 cp quickstart-autodesk-forge.zip s3://$CONFIG_BUCKET/
-    aws s3 cp taskcat_project_override.json s3://$CONFIG_BUCKET/
-    ```
+    `cd ~/environment`
+    
+    `aws s3 cp quickstart-autodesk-forge.zip s3://$CONFIG_BUCKET/`
+    
+    `aws s3 cp taskcat_project_override.json s3://$CONFIG_BUCKET/`
+
 2. In a new browser tab, open the following [launch stack link](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=Forge-App-CICD&templateURL=https://aws-cfn-samples.s3.amazonaws.com/quickstart-taskcat-ci/templates/taskcat-cicd-pipeline.template.yaml&param_ProdStackName=Forge-Prod-Stack&param_ProdStackConfig=forge-prod-codepipeline.json&param_TemplateFileName=autodesk-forge-master.json&param_TestStackConfig=taskcat_project_override.json&param_SourceRepoBranch=develop&param_ReleaseBranch=master&param_QSS3KeyPrefix=quickstart-taskcat-ci/&param_QSS3BucketName=aws-cfn-samples&param_GitHubRepoName=quickstart-autodesk-forge&param_KeepTestStack=True) that will setup your CodePipeline. Most fields are populated with defaults, fill in only the blank fields.
     * Repository owner: your GitHub user name
     * OAuth2 token: your GitHub oauth token created in Step 4

@@ -10,7 +10,7 @@ By default, Cloud9 workspace comes installed with Git CLI. However, you need to 
 
 ### Configure Git Profile
 
-In the terminal, run these two commands, one at a time, substituting your Git name and email address for USER_NAME and EMAIL_ADDRESS, respectively.
+In your Cloud9 IDE, open a new terminal, run these two commands, one at a time, substituting your Git name and email address for USER_NAME and EMAIL_ADDRESS, respectively.
 
 `cd ~/environment`
 
